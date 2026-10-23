@@ -1,0 +1,189 @@
+================================================================================
+PHASE 3A.1: Diagnostic Analysis of Evaluation Subgroups
+================================================================================
+Device: mps
+
+Loading features/test.npz and data/hf/data/merged_balanced/test.json ...
+Assertion PASSED: All 7,264 samples match identically.
+
+Loading models/M2_seed42.pt for image-only predictions ...
+
+================================================================================
+TASK 1 & 2: Structural & Metric Diagnostics Across Groups
+================================================================================
+
+--- Group: person_sbert_text_text ---
+  Number of pairs:                          908
+  Pristine at 2k & Falsified at 2k+1:       1.0000 (100.0%)
+  Pairs with identical image_id:            0
+  Pairs with equal M0 cosine (|diff|<1e-7): 0
+  Ties in M2 score (seed 42):               0
+  Unique caption IDs:                       908
+  Unique image IDs:                         908
+  M0 ROC-AUC (sample-level):                0.6870
+  M0 Tie-Adjusted Pair Accuracy:            0.5000
+  Cosine Correlation (Pristine vs Fals):    -0.0894
+
+--- Group: semantics_clip_text_image ---
+  Number of pairs:                          908
+  Pristine at 2k & Falsified at 2k+1:       1.0000 (100.0%)
+  Pairs with identical image_id:            0
+  Pairs with equal M0 cosine (|diff|<1e-7): 0
+  Ties in M2 score (seed 42):               0
+  Unique caption IDs:                       908
+  Unique image IDs:                         1,794
+  M0 ROC-AUC (sample-level):                0.4763
+  M0 Tie-Adjusted Pair Accuracy:            0.5242
+  Cosine Correlation (Pristine vs Fals):    0.4559
+
+--- Group: semantics_clip_text_text ---
+  Number of pairs:                          908
+  Pristine at 2k & Falsified at 2k+1:       1.0000 (100.0%)
+  Pairs with identical image_id:            0
+  Pairs with equal M0 cosine (|diff|<1e-7): 0
+  Ties in M2 score (seed 42):               0
+  Unique caption IDs:                       908
+  Unique image IDs:                         1,707
+  M0 ROC-AUC (sample-level):                0.9029
+  M0 Tie-Adjusted Pair Accuracy:            0.8491
+  Cosine Correlation (Pristine vs Fals):    0.3537
+
+--- Group: scene_resnet_place ---
+  Number of pairs:                          908
+  Pristine at 2k & Falsified at 2k+1:       1.0000 (100.0%)
+  Pairs with identical image_id:            0
+  Pairs with equal M0 cosine (|diff|<1e-7): 0
+  Ties in M2 score (seed 42):               0
+  Unique caption IDs:                       908
+  Unique image IDs:                         1,738
+  M0 ROC-AUC (sample-level):                0.7624
+  M0 Tie-Adjusted Pair Accuracy:            0.5341
+  Cosine Correlation (Pristine vs Fals):    0.0520
+
+--- Group: Overall Test Set ---
+  Number of pairs:                          3,632
+  Pristine at 2k & Falsified at 2k+1:       1.0000 (100.0%)
+  Pairs with identical image_id:            0
+  Pairs with equal M0 cosine (|diff|<1e-7): 0
+  Ties in M2 score (seed 42):               0
+  Unique caption IDs:                       3,632
+  Unique image IDs:                         6,147
+  M0 ROC-AUC (sample-level):                0.7197
+  M0 Tie-Adjusted Pair Accuracy:            0.6019
+  Cosine Correlation (Pristine vs Fals):    0.0517
+
+--- Group: Quartile Q1 [0.1057, 0.3445] ---
+  Number of pairs:                          908
+  Pristine at 2k & Falsified at 2k+1:       1.0000 (100.0%)
+  Pairs with identical image_id:            0
+  Pairs with equal M0 cosine (|diff|<1e-7): 0
+  Ties in M2 score (seed 42):               0
+  Unique caption IDs:                       908
+  Unique image IDs:                         1,795
+  M0 ROC-AUC (sample-level):                0.4835
+  M0 Tie-Adjusted Pair Accuracy:            0.5275
+  Cosine Correlation (Pristine vs Fals):    0.4277
+
+--- Group: Quartile Q2 [0.3445, 0.6718] ---
+  Number of pairs:                          908
+  Pristine at 2k & Falsified at 2k+1:       1.0000 (100.0%)
+  Pairs with identical image_id:            0
+  Pairs with equal M0 cosine (|diff|<1e-7): 0
+  Ties in M2 score (seed 42):               0
+  Unique caption IDs:                       908
+  Unique image IDs:                         1,735
+  M0 ROC-AUC (sample-level):                0.8221
+  M0 Tie-Adjusted Pair Accuracy:            0.6795
+  Cosine Correlation (Pristine vs Fals):    0.2017
+
+--- Group: Quartile Q3 [0.6718, 0.8145] ---
+  Number of pairs:                          908
+  Pristine at 2k & Falsified at 2k+1:       1.0000 (100.0%)
+  Pairs with identical image_id:            0
+  Pairs with equal M0 cosine (|diff|<1e-7): 0
+  Ties in M2 score (seed 42):               0
+  Unique caption IDs:                       908
+  Unique image IDs:                         1,543
+  M0 ROC-AUC (sample-level):                0.7747
+  M0 Tie-Adjusted Pair Accuracy:            0.6046
+  Cosine Correlation (Pristine vs Fals):    0.0670
+
+--- Group: Quartile Q4 [0.8145, 0.9000] ---
+  Number of pairs:                          908
+  Pristine at 2k & Falsified at 2k+1:       1.0000 (100.0%)
+  Pairs with identical image_id:            0
+  Pairs with equal M0 cosine (|diff|<1e-7): 0
+  Ties in M2 score (seed 42):               0
+  Unique caption IDs:                       908
+  Unique image IDs:                         1,132
+  M0 ROC-AUC (sample-level):                0.7485
+  M0 Tie-Adjusted Pair Accuracy:            0.5958
+  Cosine Correlation (Pristine vs Fals):    -0.0040
+
+================================================================================
+TASK 3: Mathematical & Empirical Explanation for person_sbert_text_text
+================================================================================
+Data Properties in person_sbert_text_text (908 pairs, 1,816 samples):
+  1. Pristine Image ID set size:  908
+  2. Falsified Image ID set size: 908
+  3. Set Equality (set_p == set_f): True
+  4. Mutual 2-way Swaps (img_A <-> img_B): 908 out of 908 pairs (100.0%)
+     => The 908 pairs consist of exactly 454 mutual pairs: (CapA, ImgA)/(CapA, ImgB) and (CapB, ImgB)/(CapB, ImgA).
+  5. M0 Cosine Comparisons:
+     - Pairs where pristine cosine > falsified cosine:  454 (exactly 454/908)
+     - Pairs where falsified cosine > pristine cosine:  454 (exactly 454/908)
+     - Ties:                                            0
+     - M0 Pair Accuracy = 454 / 908 = 0.500000
+  6. M2 (Image-only) Classification:
+     - Correct predictions: 908 / 1816 = 0.500000
+     - Pairs where falsified score > pristine score: 454 / 908
+
+--- Detailed Explanation Derived Strictly From the Numbers ---
+A. Why M2 (Image-Only) Accuracy is EXACTLY 0.5000:
+   - In person_sbert_text_text, the 908 pristine images and 908 falsified images form the EXACT SAME set of 908 images.
+   - Every image appears exactly ONCE with label y=0 (pristine) and exactly ONCE with label y=1 (falsified).
+   - An image-only classifier assigns a prediction purely based on image features V: f(V) -> {0, 1}.
+   - For any image I, if f(I) = 1, it is correct for the falsified sample and wrong for the pristine sample.
+     If f(I) = 0, it is correct for the pristine sample and wrong for the falsified sample.
+   - In all cases, f(I) is correct for exactly 1 out of 2 instances.
+   - Summing across all 908 unique images gives exactly 908 correct predictions out of 1,816 samples.
+   - Therefore, M2 accuracy is mathematically forced to be 908 / 1816 = 0.5000 (regardless of weights or seed).
+   - Furthermore, because of the 2-way mutual swap (CapA, ImgA vs ImgB) and (CapB, ImgB vs ImgA):
+     For Pair 1, falsified score is s(ImgB) and pristine is s(ImgA). For Pair 2, falsified is s(ImgA) and pristine is s(ImgB).
+     Exactly one of s(ImgB) > s(ImgA) or s(ImgA) > s(ImgB) must hold, so exactly 1 of the 2 pairs is correct in every 2-way swap.
+     Hence M2 pair accuracy is also mathematically forced to be 454 / 908 = 0.5000.
+
+B. Why M0 (CLIP Similarity) Pair Accuracy is EXACTLY 0.5000:
+   - In person_sbert_text_text, 100% of the pairs (all 908 pairs) participate in exact 2-way swaps across 454 quadruplets.
+   - For 418 of the 454 quadruplets (92.1%), one image has higher CLIP similarity than the other across BOTH captions:
+     i.e., cos(CapA, ImgA) > cos(CapA, ImgB) while cos(CapB, ImgA) > cos(CapB, ImgB).
+     Consequently, in each of those 418 quadruplets, exactly ONE pair is correct and ONE pair is incorrect.
+   - The remaining 36 quadruplets are evenly split: in 18 quadruplets, both pairs are correct; in 18 quadruplets, both pairs are incorrect.
+   - Total correct pairs = (18 * 2) + 418 = 36 + 418 = 454.
+   - Total incorrect pairs = (18 * 2) + 418 = 36 + 418 = 454.
+   - Therefore, M0 pair accuracy is exactly 454 / 908 = 0.5000 (50.00%).
+   - Note that M0 sample-level ROC-AUC is 0.6870, because globally pristine samples have higher average cosine (0.3137) than
+     falsified samples (0.2818). However, for pair-level ranking within the same caption, the 2-way swap structure renders
+     CLIP similarity completely unable to outperform random chance (50.00%).
+
+================================================================================
+TASK 4: Re-creating figures/cosine_distribution_fixed.png
+================================================================================
+Saved fixed figure to: figures/cosine_distribution_fixed.png
+
+=========================================================================================================
+DIAGNOSTIC SUMMARY TABLE
+=========================================================================================================
+Group                        | Pairs  | Identical Img  | Equal Cos  | M2 Ties  | Uniq Cap  | Uniq Img  | M0 ROC  | M0 Pair  | Cos Corr
+--------------------------------------------------------------------------------------------------------------------------------------
+person_sbert_text_text       | 908    | 0              | 0          | 0        | 908       | 908       | 0.6870  | 0.5000   | -0.0894 
+semantics_clip_text_image    | 908    | 0              | 0          | 0        | 908       | 1794      | 0.4763  | 0.5242   | 0.4559  
+semantics_clip_text_text     | 908    | 0              | 0          | 0        | 908       | 1707      | 0.9029  | 0.8491   | 0.3537  
+scene_resnet_place           | 908    | 0              | 0          | 0        | 908       | 1738      | 0.7624  | 0.5341   | 0.0520  
+Overall Test Set             | 3632   | 0              | 0          | 0        | 3632      | 6147      | 0.7197  | 0.6019   | 0.0517  
+Quartile Q1 [0.1057, 0.3445] | 908    | 0              | 0          | 0        | 908       | 1795      | 0.4835  | 0.5275   | 0.4277  
+Quartile Q2 [0.3445, 0.6718] | 908    | 0              | 0          | 0        | 908       | 1735      | 0.8221  | 0.6795   | 0.2017  
+Quartile Q3 [0.6718, 0.8145] | 908    | 0              | 0          | 0        | 908       | 1543      | 0.7747  | 0.6046   | 0.0670  
+Quartile Q4 [0.8145, 0.9000] | 908    | 0              | 0          | 0        | 908       | 1132      | 0.7485  | 0.5958   | -0.0040 
+
+Phase 3A.1 diagnosis completed successfully.

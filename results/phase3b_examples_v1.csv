@@ -1,0 +1,22 @@
+image,label,claim,clip_cosine,percentile_pristine,percentile_falsified,blip_caption,claim_caption_similarity,signal_level
+examples/image.jpg,match,A space shuttle launches from a launch pad with bright flames and smoke.,0.0923,0.0,0.06,a woman in a white top and black skirt,0.0812,possible mismatch
+examples/image.jpg,mismatch,A passenger airplane lands on a runway at an international airport.,0.1467,0.06,0.43,a woman in a white top and black skirt,0.1439,possible mismatch
+examples/image.jpg,partial,A spacecraft is launching into the sky.,0.1587,0.06,0.63,a woman in a white top and black skirt,0.1311,possible mismatch
+examples/elections.jpg,match,People gather inside a legislative assembly hall with rows of seats and a central speaker's platform.,0.1791,0.23,2.08,a group of people sitting around a table,0.4238,possible mismatch
+examples/elections.jpg,mismatch,A group of athletes compete in a swimming pool.,0.1479,0.06,0.46,a group of people sitting around a table,0.2478,possible mismatch
+examples/elections.jpg,partial,People are gathered in a large indoor hall for an official meeting.,0.1984,0.77,5.13,a group of people sitting around a table,0.3904,possible mismatch
+examples/concert.jpg,match,Audience members hold up smartphones to record a live concert under red stage lights.,0.3581,92.97,98.95,a person taking a photo of a concert,0.4696,no strong signal
+examples/concert.jpg,mismatch,A quiet library filled with people reading books at tables.,0.1692,0.09,1.11,a person taking a photo of a concert,0.0233,possible mismatch
+examples/concert.jpg,partial,People are watching a live performance in a dark venue.,0.2716,15.43,41.23,a person taking a photo of a concert,0.3524,weak evidence
+examples/sunflower.jpg,match,A hand holds a yellow sunflower against a blue sky with scattered clouds.,0.3309,74.32,93.54,a person holding a flower in their hand,0.6011,no strong signal
+examples/sunflower.jpg,mismatch,A red rose grows in a garden surrounded by green leaves.,0.1562,0.06,0.57,a person holding a flower in their hand,0.396,possible mismatch
+examples/sunflower.jpg,partial,A yellow flower is held up outdoors against the sky.,0.3079,49.12,78.22,a person holding a flower in their hand,0.5589,no strong signal
+examples/flood.jpg,match,A silver car is partially submerged in floodwater on a flooded residential street.,0.3205,63.9,88.47,a car is submerged in flood waters in the city of tampa,0.7103,no strong signal
+examples/flood.jpg,mismatch,A dry highway carries several trucks through a desert.,0.1705,0.11,1.2,a car is submerged in flood waters in the city of tampa,0.2427,possible mismatch
+examples/flood.jpg,partial,Floodwater covers part of a street near houses.,0.2843,24.37,51.65,a car is submerged in flood waters in the city of tampa,0.4743,weak evidence
+examples/picture.jpg,match,"People are gathered around a table during what appears to be an election-related process, with numbered paper bags and officials recording information.",0.126,0.03,0.23,a woman with a long red hair and a braid,-0.0008,possible mismatch
+examples/picture.jpg,mismatch,A football team celebrates after winning a championship on a stadium field.,0.1073,0.0,0.14,a woman with a long red hair and a braid,0.0012,possible mismatch
+examples/picture.jpg,partial,Several people are gathered around a table while one person writes on a document.,0.1595,0.06,0.65,a woman with a long red hair and a braid,-0.0014,possible mismatch
+examples/potato.jpg,match,Several athletes run around a red athletics track during a race.,0.1378,0.03,0.28,sad potato cartoon character stock vector illustration,0.0037,possible mismatch
+examples/potato.jpg,mismatch,A group of musicians perform on a stage in front of a large audience.,0.1439,0.06,0.4,sad potato cartoon character stock vector illustration,-0.0752,possible mismatch
+examples/potato.jpg,partial,Runners compete on an outdoor track.,0.1459,0.06,0.4,sad potato cartoon character stock vector illustration,-0.0057,possible mismatch

@@ -1,0 +1,22 @@
+image,label,text,clip_cosine,model_score,seed_42,seed_43,seed_44,label_wording
+examples/image.jpg,match,A space shuttle launches from a launch pad with bright flames and smoke.,0.0923,0.999,0.9983,0.9991,0.9994,likely out-of-context pairing
+examples/image.jpg,mismatch,A passenger airplane lands on a runway at an international airport.,0.1467,0.8557,0.8329,0.8634,0.8709,likely out-of-context pairing
+examples/image.jpg,partial,A spacecraft is launching into the sky.,0.1587,0.7431,0.7429,0.7158,0.7707,likely out-of-context pairing
+examples/elections.jpg,match,People gather inside a legislative assembly hall with rows of seats and a central speaker's platform.,0.1791,0.9708,0.9629,0.9684,0.9812,likely out-of-context pairing
+examples/elections.jpg,mismatch,A group of athletes compete in a swimming pool.,0.1479,0.9967,0.9952,0.9967,0.9982,likely out-of-context pairing
+examples/elections.jpg,partial,People are gathered in a large indoor hall for an official meeting.,0.1984,0.644,0.7011,0.5112,0.7195,likely out-of-context pairing
+examples/concert.jpg,match,Audience members hold up smartphones to record a live concert under red stage lights.,0.3581,0.0584,0.096,0.0384,0.0407,no out-of-context signal
+examples/concert.jpg,mismatch,A quiet library filled with people reading books at tables.,0.1692,0.6282,0.6593,0.5492,0.6761,likely out-of-context pairing
+examples/concert.jpg,partial,People are watching a live performance in a dark venue.,0.2716,0.2161,0.278,0.1775,0.1928,no out-of-context signal
+examples/sunflower.jpg,match,A hand holds a yellow sunflower against a blue sky with scattered clouds.,0.3309,0.0125,0.0165,0.0164,0.0046,no out-of-context signal
+examples/sunflower.jpg,mismatch,A red rose grows in a garden surrounded by green leaves.,0.1562,0.9851,0.9842,0.9825,0.9886,likely out-of-context pairing
+examples/sunflower.jpg,partial,A yellow flower is held up outdoors against the sky.,0.3079,0.0426,0.0523,0.056,0.0195,no out-of-context signal
+examples/flood.jpg,match,A silver car is partially submerged in floodwater on a flooded residential street.,0.3205,0.2107,0.1993,0.1596,0.2732,no out-of-context signal
+examples/flood.jpg,mismatch,A dry highway carries several trucks through a desert.,0.1705,0.9831,0.9718,0.9837,0.9938,likely out-of-context pairing
+examples/flood.jpg,partial,Floodwater covers part of a street near houses.,0.2843,0.294,0.303,0.2449,0.3343,no out-of-context signal
+examples/picture.jpg,match,"People are gathered around a table during what appears to be an election-related process, with numbered paper bags and officials recording information.",0.126,0.9617,0.9567,0.9451,0.9833,likely out-of-context pairing
+examples/picture.jpg,mismatch,A football team celebrates after winning a championship on a stadium field.,0.1073,0.9872,0.9841,0.9834,0.9942,likely out-of-context pairing
+examples/picture.jpg,partial,Several people are gathered around a table while one person writes on a document.,0.1595,0.8164,0.7812,0.7504,0.9174,likely out-of-context pairing
+examples/potato.jpg,match,Several athletes run around a red athletics track during a race.,0.1378,0.9966,0.9943,0.9974,0.9979,likely out-of-context pairing
+examples/potato.jpg,mismatch,A group of musicians perform on a stage in front of a large audience.,0.1439,0.928,0.9041,0.9146,0.9653,likely out-of-context pairing
+examples/potato.jpg,partial,Runners compete on an outdoor track.,0.1459,0.961,0.941,0.9599,0.9823,likely out-of-context pairing

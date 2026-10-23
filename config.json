@@ -1,0 +1,11 @@
+{
+  "seed": 42,
+  "seeds_for_runs": [42, 43, 44],
+  "embeddings": "CLIP ViT-B/32, 512-d, L2-normalized",
+  "splits": "official train/val/test",
+  "batch_size": 256,
+  "lr": 0.001,
+  "epochs_max": 30,
+  "early_stopping_patience": 4,
+  "dataset": "NewsCLIPpings (to be confirmed in Phase 1)"
+}

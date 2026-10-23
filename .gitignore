@@ -1,0 +1,13 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+.env
+.DS_Store
+.ipynb_checkpoints/
+data/twitter_raw/
+data/twitter_images/
+
+# Large generated files kept locally
+data/hf/embeddings/
+features/train.npz

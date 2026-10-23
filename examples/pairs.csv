@@ -1,0 +1,28 @@
+image_path,text,label,note
+examples/space_mission.jpeg,"A space shuttle launches from a launch pad with bright flames and smoke.",match,accurate caption
+examples/space_mission.jpeg,"A passenger airplane lands on a runway at an international airport.",mismatch,unrelated caption
+examples/space_mission.jpeg,"A spacecraft is launching into the sky.",partial,general description without launch pad details
+
+examples/parliament.jpeg,"People gather inside a legislative assembly hall with rows of seats and a central speaker's platform.",match,accurate caption
+examples/parliament.jpeg,"A group of athletes compete in a swimming pool.",mismatch,unrelated caption
+examples/parliament.jpeg,"People are gathered in a large indoor hall for an official meeting.",partial,related but vague caption
+
+examples/concert.jpg,"Audience members hold up smartphones to record a live concert under red stage lights.",match,accurate caption
+examples/concert.jpg,"A quiet library filled with people reading books at tables.",mismatch,unrelated caption
+examples/concert.jpg,"People are watching a live performance in a dark venue.",partial,related but less specific caption
+
+examples/sunflower.jpg,"A hand holds a yellow sunflower against a blue sky with scattered clouds.",match,accurate caption
+examples/sunflower.jpg,"A red rose grows in a garden surrounded by green leaves.",mismatch,unrelated caption
+examples/sunflower.jpg,"A yellow flower is held up outdoors against the sky.",partial,related but less specific caption
+
+examples/flood.jpg,"A silver car is partially submerged in floodwater on a flooded residential street.",match,accurate caption
+examples/flood.jpg,"A dry highway carries several trucks through a desert.",mismatch,unrelated caption
+examples/flood.jpg,"Floodwater covers part of a street near houses.",partial,related but omits the car detail
+
+examples/elections.jpg,"People are gathered around a table during what appears to be an election-related process, with numbered paper bags and officials recording information.",match,visual description; event context uncertain
+examples/elections.jpg,"A football team celebrates after winning a championship on a stadium field.",mismatch,unrelated caption
+examples/elections.jpg,"Several people are gathered around a table while one person writes on a document.",partial,related but less specific caption
+
+examples/sports.jpg,"Several athletes run around a red athletics track during a race.",match,accurate caption
+examples/sports.jpg,"A group of musicians perform on a stage in front of a large audience.",mismatch,unrelated caption
+examples/sports.jpg,"Runners compete on an outdoor track.",partial,related but less specific caption

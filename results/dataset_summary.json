@@ -1,0 +1,80 @@
+{
+  "dataset": "NewsCLIPpings",
+  "seed": 42,
+  "splits": {
+    "train": {
+      "num_samples": 71072,
+      "falsified_true_count": 35536,
+      "falsified_false_count": 35536,
+      "falsified_true_pct": 50.0,
+      "falsified_false_pct": 50.0,
+      "consecutive_pairs_total": 35536,
+      "consecutive_pairs_matching": 35536,
+      "consecutive_pairs_fraction": 1.0,
+      "unique_caption_ids": 35536,
+      "unique_image_ids": 59876,
+      "raw_text_norm_sampled": 1.0,
+      "raw_image_norm_sampled": 1.0,
+      "final_T_norm_sampled": 1.0,
+      "final_V_norm_sampled": 1.0,
+      "embedding_dim": 512,
+      "dtype": "float32",
+      "npz_path": "features/train.npz",
+      "npz_size_mb": 187.62
+    },
+    "val": {
+      "num_samples": 7024,
+      "falsified_true_count": 3512,
+      "falsified_false_count": 3512,
+      "falsified_true_pct": 50.0,
+      "falsified_false_pct": 50.0,
+      "consecutive_pairs_total": 3512,
+      "consecutive_pairs_matching": 3512,
+      "consecutive_pairs_fraction": 1.0,
+      "unique_caption_ids": 3512,
+      "unique_image_ids": 5943,
+      "raw_text_norm_sampled": 1.0,
+      "raw_image_norm_sampled": 1.0,
+      "final_T_norm_sampled": 1.0,
+      "final_V_norm_sampled": 1.0,
+      "embedding_dim": 512,
+      "dtype": "float32",
+      "npz_path": "features/val.npz",
+      "npz_size_mb": 18.53
+    },
+    "test": {
+      "num_samples": 7264,
+      "falsified_true_count": 3632,
+      "falsified_false_count": 3632,
+      "falsified_true_pct": 50.0,
+      "falsified_false_pct": 50.0,
+      "consecutive_pairs_total": 3632,
+      "consecutive_pairs_matching": 3632,
+      "consecutive_pairs_fraction": 1.0,
+      "unique_caption_ids": 3632,
+      "unique_image_ids": 6147,
+      "raw_text_norm_sampled": 1.0,
+      "raw_image_norm_sampled": 1.0,
+      "final_T_norm_sampled": 1.0,
+      "final_V_norm_sampled": 1.0,
+      "embedding_dim": 512,
+      "dtype": "float32",
+      "npz_path": "features/test.npz",
+      "npz_size_mb": 19.14
+    }
+  },
+  "leakage_overlap": {
+    "train_val": {
+      "caption_id_overlap": 0,
+      "image_id_overlap": 0
+    },
+    "train_test": {
+      "caption_id_overlap": 0,
+      "image_id_overlap": 0
+    },
+    "val_test": {
+      "caption_id_overlap": 0,
+      "image_id_overlap": 0
+    }
+  }
+}

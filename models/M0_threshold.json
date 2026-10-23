@@ -1,0 +1,6 @@
+{
+  "optimal_threshold": 0.3055843710899353,
+  "val_accuracy": 0.648490888382688,
+  "criterion": "max_val_accuracy",
+  "decision_rule": "falsified if cosine(T, V) < threshold"
+}

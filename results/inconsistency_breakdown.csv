@@ -1,0 +1,10 @@
+group_type,group_name,num_pairs,m0_accuracy,m0_pair_accuracy,m2_accuracy,m2_pair_accuracy,m4_accuracy,m4_pair_accuracy,pristine_mean_cosine,falsified_mean_cosine,clip_prefers_wrong_pct
+overall,Overall Test Set,3632,0.6523,0.6019,0.5279,0.5487,0.7058,0.7832,0.3072,0.274,39.81
+source_dataset,semantics_clip_text_image,908,0.5171,0.5242,0.5444,0.58,0.5837,0.6685,0.2949,0.2993,47.58
+source_dataset,semantics_clip_text_text,908,0.8221,0.8491,0.5358,0.5554,0.832,0.9141,0.3225,0.2589,15.09
+source_dataset,scene_resnet_place,908,0.6459,0.5341,0.5316,0.5595,0.7276,0.7996,0.2977,0.256,46.59
+source_dataset,person_sbert_text_text,908,0.6239,0.5,0.5,0.5,0.6797,0.7507,0.3137,0.2818,50.0
+similarity_score_quartile,Q1_[0.1057_0.3445],908,0.5209,0.5275,0.549,0.5863,0.5907,0.6769,0.2936,0.2968,47.25
+similarity_score_quartile,Q2_[0.3445_0.6718],908,0.7357,0.6795,0.5461,0.5833,0.7711,0.8513,0.3144,0.2658,32.05
+similarity_score_quartile,Q3_[0.6718_0.8145],908,0.6867,0.6046,0.5191,0.5261,0.7443,0.8106,0.3065,0.2616,39.54
+similarity_score_quartile,Q4_[0.8145_0.9000],908,0.6657,0.5958,0.4976,0.4993,0.717,0.7941,0.3142,0.2718,40.42

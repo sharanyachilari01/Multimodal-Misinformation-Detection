@@ -1,0 +1,157 @@
+{
+  "source_groups": {
+    "semantics_clip_text_image": {
+      "pairs": 908,
+      "m0_accuracy": 0.5171,
+      "m0_pair_accuracy": 0.5242,
+      "m0_roc_auc": 0.4763,
+      "m4_accuracy": 0.5837,
+      "m4_pair_accuracy": 0.6685,
+      "provenance": {
+        "pairs": "results/inconsistency_breakdown.csv:3",
+        "m0_accuracy": "results/inconsistency_breakdown.csv:3",
+        "m0_pair_accuracy": "results/inconsistency_breakdown.csv:3",
+        "m0_roc_auc": "results/phase3a1_diagnostic.txt:180",
+        "m4_accuracy": "results/inconsistency_breakdown.csv:3",
+        "m4_pair_accuracy": "results/inconsistency_breakdown.csv:3"
+      }
+    },
+    "semantics_clip_text_text": {
+      "pairs": 908,
+      "m0_accuracy": 0.8221,
+      "m0_pair_accuracy": 0.8491,
+      "m0_roc_auc": 0.9029,
+      "m4_accuracy": 0.832,
+      "m4_pair_accuracy": 0.9141,
+      "provenance": {
+        "pairs": "results/inconsistency_breakdown.csv:4",
+        "m0_accuracy": "results/inconsistency_breakdown.csv:4",
+        "m0_pair_accuracy": "results/inconsistency_breakdown.csv:4",
+        "m0_roc_auc": "results/phase3a1_diagnostic.txt:181",
+        "m4_accuracy": "results/inconsistency_breakdown.csv:4",
+        "m4_pair_accuracy": "results/inconsistency_breakdown.csv:4"
+      }
+    },
+    "scene_resnet_place": {
+      "pairs": 908,
+      "m0_accuracy": 0.6459,
+      "m0_pair_accuracy": 0.5341,
+      "m0_roc_auc": 0.7624,
+      "m4_accuracy": 0.7276,
+      "m4_pair_accuracy": 0.7996,
+      "provenance": {
+        "pairs": "results/inconsistency_breakdown.csv:5",
+        "m0_accuracy": "results/inconsistency_breakdown.csv:5",
+        "m0_pair_accuracy": "results/inconsistency_breakdown.csv:5",
+        "m0_roc_auc": "results/phase3a1_diagnostic.txt:182",
+        "m4_accuracy": "results/inconsistency_breakdown.csv:5",
+        "m4_pair_accuracy": "results/inconsistency_breakdown.csv:5"
+      }
+    },
+    "person_sbert_text_text": {
+      "pairs": 908,
+      "m0_accuracy": 0.6239,
+      "m0_pair_accuracy": 0.5,
+      "m0_roc_auc": 0.687,
+      "m4_accuracy": 0.6797,
+      "m4_pair_accuracy": 0.7507,
+      "provenance": {
+        "pairs": "results/inconsistency_breakdown.csv:6",
+        "m0_accuracy": "results/inconsistency_breakdown.csv:6",
+        "m0_pair_accuracy": "results/inconsistency_breakdown.csv:6",
+        "m0_roc_auc": "results/phase3a1_diagnostic.txt:179",
+        "m4_accuracy": "results/inconsistency_breakdown.csv:6",
+        "m4_pair_accuracy": "results/inconsistency_breakdown.csv:6"
+      }
+    }
+  },
+  "overall": {
+    "pairs": 3632,
+    "m0_accuracy": 0.6523,
+    "m0_pair_accuracy": 0.6019,
+    "m0_roc_auc": 0.7197,
+    "m4_accuracy": 0.7058,
+    "m4_pair_accuracy": 0.7832,
+    "provenance": {
+      "pairs": "results/inconsistency_breakdown.csv:2",
+      "m0_accuracy": "results/inconsistency_breakdown.csv:2 (and results/baselines_summary.csv:2)",
+      "m0_pair_accuracy": "results/inconsistency_breakdown.csv:2 (and results/baselines_summary.csv:2)",
+      "m0_roc_auc": "results/phase3a1_diagnostic.txt:183",
+      "m4_accuracy": "results/inconsistency_breakdown.csv:2 (and results/baselines_summary.csv:6)",
+      "m4_pair_accuracy": "results/inconsistency_breakdown.csv:2 (and results/baselines_summary.csv:6)"
+    }
+  },
+  "m4_vs_m0_bootstrap_gap": {
+    "file": "results/phase3a_log.txt",
+    "line": 121,
+    "observed_gap": 0.1814,
+    "bootstrap_mean": 0.181,
+    "bootstrap_95_ci": [
+      0.1667,
+      0.1962
+    ],
+    "m0_pair_accuracy": 0.6019,
+    "m0_bootstrap_95_ci": [
+      0.5867,
+      0.6178
+    ],
+    "m4_pair_accuracy": 0.7832,
+    "m4_bootstrap_95_ci": [
+      0.771,
+      0.7947
+    ]
+  },
+  "person_sbert_text_text_quadruplets": {
+    "total_pairs": 908,
+    "total_quadruplets": 454,
+    "both_right": 18,
+    "both_wrong": 18,
+    "split": 418
+  },
+  "v2_handmade_sanity_set": {
+    "mismatch_vs_match": {
+      "mismatch_cosine_lower": "7 of 7",
+      "mismatch_m4_higher": "7 of 7"
+    },
+    "full_ordering_cosine": {
+      "ordering": "match > partial > mismatch",
+      "k_of_7": "7 of 7",
+      "failing_images": []
+    },
+    "full_ordering_m4_ooc": {
+      "ordering": "mismatch > partial > match",
+      "k_of_7": "6 of 7",
+      "failing_images": [
+        "examples/sports.jpg"
+      ]
+    },
+    "full_ordering_m4_literal": {
+      "ordering": "match > partial > mismatch",
+      "k_of_7": "0 of 7",
+      "failing_images": [
+        "examples/space_mission.jpeg",
+        "examples/parliament.jpeg",
+        "examples/concert.jpg",
+        "examples/sunflower.jpg",
+        "examples/flood.jpg",
+        "examples/elections.jpg",
+        "examples/sports.jpg"
+      ]
+    },
+    "flagged_correct_captions": [
+      {
+        "image": "examples/parliament.jpeg",
+        "text": "People gather inside a legislative assembly hall with rows of seats and a central speaker's platform.",
+        "model_score": 0.5059,
+        "signal_level": "weak evidence"
+      },
+      {
+        "image": "examples/elections.jpg",
+        "text": "People are gathered around a table during what appears to be an election-related process, with numbered paper bags and officials recording information.",
+        "model_score": 0.6251,
+        "signal_level": "weak evidence"
+      }
+    ],
+    "spearman_rho": -0.9338
+  }
+}

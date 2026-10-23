@@ -1,0 +1,341 @@
+================================================================================
+PHASE 7C.2: TWITTER / MEDIAEVAL 2015 MODEL TRAINING & EVALUATION (v2)
+================================================================================
+Device: mps
+Hyperparameters: lr=0.001, batch_size=256, epochs_max=30, early_stopping_patience=4
+Seeds for runs: [42, 43, 44]
+
+================================================================================
+STEP 1: LOAD FEATURES AND PRINT SHAPES & LABEL COUNTS
+================================================================================
+Devset Feature Arrays:
+  • T (Text embeddings)  : shape = (14258, 512), dtype = float32
+  • V (Image embeddings) : shape = (14258, 512), dtype = float32
+  • y (Binary labels)    : shape = (14258,), dtype = int64
+  • raw_label            : shape = (14258,), dtype = object
+  • is_humor             : shape = (14258,), dtype = bool
+  • tweet_id             : shape = (14258,), dtype = object
+  • image_id             : shape = (14258,), dtype = object
+  • event                : shape = (14258,), dtype = object
+  • cosine               : shape = (14258,), dtype = float32
+
+Testset Feature Arrays:
+  • T (Text embeddings)  : shape = (1923, 512), dtype = float32
+  • V (Image embeddings) : shape = (1923, 512), dtype = float32
+  • y (Binary labels)    : shape = (1923,), dtype = int64
+  • raw_label            : shape = (1923,), dtype = object
+  • is_humor             : shape = (1923,), dtype = bool
+  • tweet_id             : shape = (1923,), dtype = object
+  • image_id             : shape = (1923,), dtype = object
+  • event                : shape = (1923,), dtype = object
+  • cosine               : shape = (1923,), dtype = float32
+
+Label Counts:
+  • Devset Raw Labels    : {'fake': 6741, 'humor': 2612, 'real': 4905}
+  • Devset Binary (0/1)  : {np.int64(1): 9353, np.int64(0): 4905} (0=real, 1=fake+humor)
+  • Testset Raw Labels   : {'fake': 716, 'real': 1207}
+  • Testset Binary (0/1) : {np.int64(1): 716, np.int64(0): 1207} (0=real, 1=fake)
+
+================================================================================
+STEP 2: VALIDATION SPLIT GROUPED BY IMAGE ID (15%, STRATIFIED)
+================================================================================
+Total Unique Devset Images: 354
+Devset Images Class Balance: Real(0) = 172, Fake(1) = 182
+
+Image-Level Split (15% validation, random_state=42):
+  • Train Images : 300 (Real=146, Fake=154)
+  • Val Images   : 54 (Real=26, Fake=28)
+
+Tweet Counts before text deduplication:
+  • Train Tweets : 11,764 | Real(0)=4,374 | Fake(1)=7,390
+  • Val Tweets   : 2,494 | Real(0)=531 | Fake(1)=1,963
+
+Unique cleaned texts in training split: 9,578
+Validation tweets before duplicate dropping : 2,494
+Cross-split cleaned-text duplicates detected : 88
+Validation tweets after duplicate dropping  : 2,406
+  ↳ Validation Class Counts: Real(0) = 521, Fake(1) = 1,885
+Validation split sanity check PASSED: both classes are well represented and strictly non-empty.
+
+================================================================================
+TEST SPLIT MAJORITY-CLASS & ALWAYS-FAKE BASELINES
+================================================================================
+Test Split Size: 1,923 | Real (0) = 1,207 (62.77%) | Fake (1) = 716 (37.23%)
+  • Majority-Class Baseline (Always Real=0) : Acc = 0.6277 (62.77%) | TP=0, FP=0, TN=1207, FN=716 | Pred-Fake Rate = 0.0000
+  • Always-Fake Baseline (Always Fake=1)     : Acc = 0.3723, Fake-F1 = 0.5426, Prec = 0.3723, Rec = 1.0000 | TP=716, FP=1207, TN=0, FN=0 | Pred-Fake Rate = 1.0000
+
+================================================================================
+STARTING VARIANT A: HUMOR COUNTED AS FAKE (FAKE=1, HUMOR=1, REAL=0)
+================================================================================
+Split sizes for humor_as_fake:
+  • Train : N = 11,764 | Real(0) = 4,374 | Fake(1) = 7,390
+  • Val   : N = 2,406 | Real(0) = 521 | Fake(1) = 1,885
+  • Test  : N = 1,923 | Real(0) = 1,207 | Fake(1) = 716
+
+--- Model M0: CLIP Cosine Baseline ---
+Optimal threshold chosen on validation split: 0.420163 (Val Accuracy: 0.7835)
+M0 Test Metrics: Accuracy = 0.3723, Fake-F1 = 0.5426, Precision = 0.3723, Recall = 1.0000, ROC-AUC = 0.8780
+  Confusion Matrix : TP = 716, FP = 1,207, TN = 0, FN = 0 | Predicted-Fake Rate = 1.0000
+M0 Image-Cluster Bootstrap (1,000 resamples, seed 42):
+  • Accuracy 95% CI : [0.1257, 0.8272] (Bootstrap Mean = 0.4185)
+  • Fake-F1  95% CI : [0.2233, 0.9054] (Bootstrap Mean = 0.5639)
+
+--- Model M1 ---
+Feature dimension for M1: 512
+  Seed 42: stopped at epoch 11, best epoch 7 (best val BCE loss = 0.228551)
+  Seed 43: stopped at epoch 11, best epoch 7 (best val BCE loss = 0.240141)
+  Seed 44: stopped at epoch 14, best epoch 10 (best val BCE loss = 0.233456)
+M1 Test Summary (3 seeds):
+  • Accuracy  : 0.3997 ± 0.0078
+  • Fake-F1   : 0.5071 ± 0.0038
+  • Precision : 0.3652 ± 0.0036
+  • Recall    : 0.8291 ± 0.0032
+  • ROC-AUC   : 0.5176 ± 0.0277
+  • Confusion Matrix (Mean ± Std) : TP = 593.7 ± 2.3, FP = 1032.0 ± 14.0, TN = 175.0 ± 14.0, FN = 122.3 ± 2.3
+  • Predicted-Fake Rate           : 0.8454 ± 0.0069
+  • Ensemble (Seed-Averaged Probability) : Acc = 0.3999, Fake-F1 = 0.5073, TP = 594, FP = 1032, TN = 175, FN = 122, Pred-Fake Rate = 0.8456
+  • Bootstrap 95% CI (Seed-Averaged Ensemble, image-cluster, seed 42):
+    ↳ Accuracy 95% CI : [0.1414, 0.8364] (Bootstrap Mean = 0.4511)
+    ↳ Fake-F1  95% CI : [0.1727, 0.8874] (Bootstrap Mean = 0.5340)
+
+--- Model M2 ---
+Feature dimension for M2: 512
+  Seed 42: stopped at epoch 12, best epoch 8 (best val BCE loss = 0.187338)
+  Seed 43: stopped at epoch 9, best epoch 5 (best val BCE loss = 0.183501)
+  Seed 44: stopped at epoch 12, best epoch 8 (best val BCE loss = 0.188812)
+M2 Test Summary (3 seeds):
+  • Accuracy  : 0.7322 ± 0.2423
+  • Fake-F1   : 0.7588 ± 0.1583
+  • Precision : 0.6375 ± 0.2015
+  • Recall    : 0.9832 ± 0.0290
+  • ROC-AUC   : 0.9290 ± 0.0178
+  • Confusion Matrix (Mean ± Std) : TP = 704.0 ± 20.8, FP = 503.0 ± 476.4, TN = 704.0 ± 476.4, FN = 12.0 ± 20.8
+  • Predicted-Fake Rate           : 0.6277 ± 0.2535
+  • Ensemble (Seed-Averaged Probability) : Acc = 0.4358, Fake-F1 = 0.5577, TP = 684, FP = 1053, TN = 154, FN = 32, Pred-Fake Rate = 0.9033
+  • Bootstrap 95% CI (Seed-Averaged Ensemble, image-cluster, seed 42):
+    ↳ Accuracy 95% CI : [0.1633, 0.8968] (Bootstrap Mean = 0.4943)
+    ↳ Fake-F1  95% CI : [0.2136, 0.9378] (Bootstrap Mean = 0.5872)
+
+--- Model M3 ---
+Feature dimension for M3: 1024
+  Seed 42: stopped at epoch 7, best epoch 3 (best val BCE loss = 0.125539)
+  Seed 43: stopped at epoch 8, best epoch 4 (best val BCE loss = 0.121049)
+  Seed 44: stopped at epoch 8, best epoch 4 (best val BCE loss = 0.135247)
+M3 Test Summary (3 seeds):
+  • Accuracy  : 0.4228 ± 0.0161
+  • Fake-F1   : 0.5618 ± 0.0065
+  • Precision : 0.3916 ± 0.0066
+  • Recall    : 0.9935 ± 0.0016
+  • ROC-AUC   : 0.8770 ± 0.0087
+  • Confusion Matrix (Mean ± Std) : TP = 711.3 ± 1.2, FP = 1105.3 ± 32.1, TN = 101.7 ± 32.1, FN = 4.7 ± 1.2
+  • Predicted-Fake Rate           : 0.9447 ± 0.0173
+  • Ensemble (Seed-Averaged Probability) : Acc = 0.4228, Fake-F1 = 0.5613, TP = 710, FP = 1104, TN = 103, FN = 6, Pred-Fake Rate = 0.9433
+  • Bootstrap 95% CI (Seed-Averaged Ensemble, image-cluster, seed 42):
+    ↳ Accuracy 95% CI : [0.1598, 0.8629] (Bootstrap Mean = 0.4779)
+    ↳ Fake-F1  95% CI : [0.2260, 0.9217] (Bootstrap Mean = 0.5871)
+
+--- Model M4 ---
+Feature dimension for M4: 2049
+  Seed 42: stopped at epoch 6, best epoch 2 (best val BCE loss = 0.135042)
+  Seed 43: stopped at epoch 6, best epoch 2 (best val BCE loss = 0.139829)
+  Seed 44: stopped at epoch 6, best epoch 2 (best val BCE loss = 0.135163)
+M4 Test Summary (3 seeds):
+  • Accuracy  : 0.4446 ± 0.0218
+  • Fake-F1   : 0.5710 ± 0.0089
+  • Precision : 0.4009 ± 0.0092
+  • Recall    : 0.9921 ± 0.0029
+  • ROC-AUC   : 0.8685 ± 0.0337
+  • Confusion Matrix (Mean ± Std) : TP = 710.3 ± 2.1, FP = 1062.3 ± 43.8, TN = 144.7 ± 43.8, FN = 5.7 ± 2.1
+  • Predicted-Fake Rate           : 0.9218 ± 0.0238
+  • Ensemble (Seed-Averaged Probability) : Acc = 0.4451, Fake-F1 = 0.5717, TP = 712, FP = 1063, TN = 144, FN = 4, Pred-Fake Rate = 0.9230
+  • Bootstrap 95% CI (Seed-Averaged Ensemble, image-cluster, seed 42):
+    ↳ Accuracy 95% CI : [0.1785, 0.8843] (Bootstrap Mean = 0.5038)
+    ↳ Fake-F1  95% CI : [0.2312, 0.9340] (Bootstrap Mean = 0.6000)
+
+================================================================================
+STARTING VARIANT B: HUMOR DROPPED FROM TRAIN AND VALIDATION
+================================================================================
+Split sizes for humor_dropped:
+  • Train : N = 9,795 | Real(0) = 4,374 | Fake(1) = 5,421
+  • Val   : N = 1,785 | Real(0) = 521 | Fake(1) = 1,264
+  • Test  : N = 1,923 | Real(0) = 1,207 | Fake(1) = 716
+
+--- Model M0: CLIP Cosine Baseline ---
+Optimal threshold chosen on validation split: 0.400368 (Val Accuracy: 0.7081)
+M0 Test Metrics: Accuracy = 0.3723, Fake-F1 = 0.5426, Precision = 0.3723, Recall = 1.0000, ROC-AUC = 0.8780
+  Confusion Matrix : TP = 716, FP = 1,207, TN = 0, FN = 0 | Predicted-Fake Rate = 1.0000
+M0 Image-Cluster Bootstrap (1,000 resamples, seed 42):
+  • Accuracy 95% CI : [0.1257, 0.8272] (Bootstrap Mean = 0.4185)
+  • Fake-F1  95% CI : [0.2233, 0.9054] (Bootstrap Mean = 0.5639)
+
+--- Model M1 ---
+Feature dimension for M1: 512
+  Seed 42: stopped at epoch 7, best epoch 3 (best val BCE loss = 0.279102)
+  Seed 43: stopped at epoch 10, best epoch 6 (best val BCE loss = 0.283882)
+  Seed 44: stopped at epoch 15, best epoch 11 (best val BCE loss = 0.280792)
+M1 Test Summary (3 seeds):
+  • Accuracy  : 0.3952 ± 0.0127
+  • Fake-F1   : 0.5027 ± 0.0051
+  • Precision : 0.3623 ± 0.0053
+  • Recall    : 0.8208 ± 0.0045
+  • ROC-AUC   : 0.4795 ± 0.0557
+  • Confusion Matrix (Mean ± Std) : TP = 587.7 ± 3.2, FP = 1034.7 ± 25.4, TN = 172.3 ± 25.4, FN = 128.3 ± 3.2
+  • Predicted-Fake Rate           : 0.8436 ± 0.0139
+  • Ensemble (Seed-Averaged Probability) : Acc = 0.4041, Fake-F1 = 0.5082, TP = 592, FP = 1022, TN = 185, FN = 124, Pred-Fake Rate = 0.8393
+  • Bootstrap 95% CI (Seed-Averaged Ensemble, image-cluster, seed 42):
+    ↳ Accuracy 95% CI : [0.1438, 0.8414] (Bootstrap Mean = 0.4560)
+    ↳ Fake-F1  95% CI : [0.1730, 0.8884] (Bootstrap Mean = 0.5356)
+
+--- Model M2 ---
+Feature dimension for M2: 512
+  Seed 42: stopped at epoch 8, best epoch 4 (best val BCE loss = 0.292239)
+  Seed 43: stopped at epoch 9, best epoch 5 (best val BCE loss = 0.285269)
+  Seed 44: stopped at epoch 12, best epoch 8 (best val BCE loss = 0.281856)
+M2 Test Summary (3 seeds):
+  • Accuracy  : 0.8641 ± 0.0030
+  • Fake-F1   : 0.8396 ± 0.0030
+  • Precision : 0.7489 ± 0.0047
+  • Recall    : 0.9553 ± 0.0000
+  • ROC-AUC   : 0.9544 ± 0.0004
+  • Confusion Matrix (Mean ± Std) : TP = 684.0 ± 0.0, FP = 229.3 ± 5.8, TN = 977.7 ± 5.8, FN = 32.0 ± 0.0
+  • Predicted-Fake Rate           : 0.4750 ± 0.0030
+  • Ensemble (Seed-Averaged Probability) : Acc = 0.8658, Fake-F1 = 0.8413, TP = 684, FP = 226, TN = 981, FN = 32, Pred-Fake Rate = 0.4732
+  • Bootstrap 95% CI (Seed-Averaged Ensemble, image-cluster, seed 42):
+    ↳ Accuracy 95% CI : [0.5584, 0.9757] (Bootstrap Mean = 0.8427)
+    ↳ Fake-F1  95% CI : [0.5702, 0.9678] (Bootstrap Mean = 0.8256)
+
+--- Model M3 ---
+Feature dimension for M3: 1024
+  Seed 42: stopped at epoch 6, best epoch 2 (best val BCE loss = 0.180028)
+  Seed 43: stopped at epoch 7, best epoch 3 (best val BCE loss = 0.178637)
+  Seed 44: stopped at epoch 7, best epoch 3 (best val BCE loss = 0.172335)
+M3 Test Summary (3 seeds):
+  • Accuracy  : 0.4621 ± 0.0060
+  • Fake-F1   : 0.5779 ± 0.0024
+  • Precision : 0.4082 ± 0.0026
+  • Recall    : 0.9888 ± 0.0014
+  • ROC-AUC   : 0.9318 ± 0.0250
+  • Confusion Matrix (Mean ± Std) : TP = 708.0 ± 1.0, FP = 1026.3 ± 12.5, TN = 180.7 ± 12.5, FN = 8.0 ± 1.0
+  • Predicted-Fake Rate           : 0.9019 ± 0.0070
+  • Ensemble (Seed-Averaged Probability) : Acc = 0.4639, Fake-F1 = 0.5787, TP = 708, FP = 1023, TN = 184, FN = 8, Pred-Fake Rate = 0.9002
+  • Bootstrap 95% CI (Seed-Averaged Ensemble, image-cluster, seed 42):
+    ↳ Accuracy 95% CI : [0.1987, 0.8916] (Bootstrap Mean = 0.5254)
+    ↳ Fake-F1  95% CI : [0.2320, 0.9364] (Bootstrap Mean = 0.6092)
+
+--- Model M4 ---
+Feature dimension for M4: 2049
+  Seed 42: stopped at epoch 6, best epoch 2 (best val BCE loss = 0.179817)
+  Seed 43: stopped at epoch 6, best epoch 2 (best val BCE loss = 0.179034)
+  Seed 44: stopped at epoch 6, best epoch 2 (best val BCE loss = 0.187314)
+M4 Test Summary (3 seeds):
+  • Accuracy  : 0.4666 ± 0.0391
+  • Fake-F1   : 0.5810 ± 0.0167
+  • Precision : 0.4110 ± 0.0176
+  • Recall    : 0.9916 ± 0.0061
+  • ROC-AUC   : 0.9055 ± 0.0355
+  • Confusion Matrix (Mean ± Std) : TP = 710.0 ± 4.4, FP = 1019.7 ± 79.1, TN = 187.3 ± 79.1, FN = 6.0 ± 4.4
+  • Predicted-Fake Rate           : 0.8995 ± 0.0432
+  • Ensemble (Seed-Averaged Probability) : Acc = 0.4623, Fake-F1 = 0.5780, TP = 708, FP = 1026, TN = 181, FN = 8, Pred-Fake Rate = 0.9017
+  • Bootstrap 95% CI (Seed-Averaged Ensemble, image-cluster, seed 42):
+    ↳ Accuracy 95% CI : [0.1932, 0.8932] (Bootstrap Mean = 0.5237)
+    ↳ Fake-F1  95% CI : [0.2331, 0.9391] (Bootstrap Mean = 0.6084)
+
+================================================================================
+STEP 4: PER-EVENT TEST CONFUSION COUNTS (M0, M2, M4)
+================================================================================
+Testset Events (4): ['eclipse', 'garissa', 'nepal', 'samurai']
+
+--- VARIANT A: HUMOR COUNTED AS FAKE (FAKE=1, HUMOR=1, REAL=0) ---
+
+Model M0 Per-Event Confusion Counts:
+Event      | Total | Real  | Fake  | TP    | FP    | TN    | FN    | Acc     | Pred-Fake Rate
+----------------------------------------------------------------------------------------
+eclipse    |   275 |   138 |   137 |   137 |   138 |     0 |     0 |  0.4982 |         1.0000
+garissa    |    77 |    72 |     5 |     5 |    72 |     0 |     0 |  0.0649 |         1.0000
+nepal      |  1353 |   997 |   356 |   356 |   997 |     0 |     0 |  0.2631 |         1.0000
+samurai    |   218 |     0 |   218 |   218 |     0 |     0 |     0 |  1.0000 |         1.0000
+----------------------------------------------------------------------------------------
+OVERALL    |  1923 |  1207 |   716 |   716 |  1207 |     0 |     0 |  0.3723 |         1.0000
+
+Model M2 Per-Event Confusion Counts:
+Event      | Total | Real  | Fake  | TP    | FP    | TN    | FN    | Acc     | Pred-Fake Rate
+----------------------------------------------------------------------------------------
+eclipse    |   275 |   138 |   137 |   137 |   138 |     0 |     0 |  0.4982 |         1.0000
+garissa    |    77 |    72 |     5 |     5 |    72 |     0 |     0 |  0.0649 |         1.0000
+nepal      |  1353 |   997 |   356 |   324 |   843 |   154 |    32 |  0.3533 |         0.8625
+samurai    |   218 |     0 |   218 |   218 |     0 |     0 |     0 |  1.0000 |         1.0000
+----------------------------------------------------------------------------------------
+OVERALL    |  1923 |  1207 |   716 |   684 |  1053 |   154 |    32 |  0.4358 |         0.9033
+
+Model M4 Per-Event Confusion Counts:
+Event      | Total | Real  | Fake  | TP    | FP    | TN    | FN    | Acc     | Pred-Fake Rate
+----------------------------------------------------------------------------------------
+eclipse    |   275 |   138 |   137 |   133 |    65 |    73 |     4 |  0.7491 |         0.7200
+garissa    |    77 |    72 |     5 |     5 |    72 |     0 |     0 |  0.0649 |         1.0000
+nepal      |  1353 |   997 |   356 |   356 |   926 |    71 |     0 |  0.3156 |         0.9475
+samurai    |   218 |     0 |   218 |   218 |     0 |     0 |     0 |  1.0000 |         1.0000
+----------------------------------------------------------------------------------------
+OVERALL    |  1923 |  1207 |   716 |   712 |  1063 |   144 |     4 |  0.4451 |         0.9230
+
+--- VARIANT B: HUMOR DROPPED FROM TRAIN AND VALIDATION ---
+
+Model M0 Per-Event Confusion Counts:
+Event      | Total | Real  | Fake  | TP    | FP    | TN    | FN    | Acc     | Pred-Fake Rate
+----------------------------------------------------------------------------------------
+eclipse    |   275 |   138 |   137 |   137 |   138 |     0 |     0 |  0.4982 |         1.0000
+garissa    |    77 |    72 |     5 |     5 |    72 |     0 |     0 |  0.0649 |         1.0000
+nepal      |  1353 |   997 |   356 |   356 |   997 |     0 |     0 |  0.2631 |         1.0000
+samurai    |   218 |     0 |   218 |   218 |     0 |     0 |     0 |  1.0000 |         1.0000
+----------------------------------------------------------------------------------------
+OVERALL    |  1923 |  1207 |   716 |   716 |  1207 |     0 |     0 |  0.3723 |         1.0000
+
+Model M2 Per-Event Confusion Counts:
+Event      | Total | Real  | Fake  | TP    | FP    | TN    | FN    | Acc     | Pred-Fake Rate
+----------------------------------------------------------------------------------------
+eclipse    |   275 |   138 |   137 |   137 |   128 |    10 |     0 |  0.5345 |         0.9636
+garissa    |    77 |    72 |     5 |     5 |    72 |     0 |     0 |  0.0649 |         1.0000
+nepal      |  1353 |   997 |   356 |   324 |    26 |   971 |    32 |  0.9571 |         0.2587
+samurai    |   218 |     0 |   218 |   218 |     0 |     0 |     0 |  1.0000 |         1.0000
+----------------------------------------------------------------------------------------
+OVERALL    |  1923 |  1207 |   716 |   684 |   226 |   981 |    32 |  0.8658 |         0.4732
+
+Model M4 Per-Event Confusion Counts:
+Event      | Total | Real  | Fake  | TP    | FP    | TN    | FN    | Acc     | Pred-Fake Rate
+----------------------------------------------------------------------------------------
+eclipse    |   275 |   138 |   137 |   133 |    76 |    62 |     4 |  0.7091 |         0.7600
+garissa    |    77 |    72 |     5 |     3 |    72 |     0 |     2 |  0.0390 |         0.9740
+nepal      |  1353 |   997 |   356 |   354 |   878 |   119 |     2 |  0.3496 |         0.9106
+samurai    |   218 |     0 |   218 |   218 |     0 |     0 |     0 |  1.0000 |         1.0000
+----------------------------------------------------------------------------------------
+OVERALL    |  1923 |  1207 |   716 |   708 |  1026 |   181 |     8 |  0.4623 |         0.9017
+
+================================================================================
+STEP 5: SAVING RESULTS CSV & LOG
+================================================================================
+Saved results table to: /Users/sharanya/FND/results/twitter_v2_results.csv (44 rows)
+
+=======================================================================================================================================
+FINAL SUMMARY: TEST SET PERFORMANCE PER MODEL (SEED-AVERAGED)
+=======================================================================================================================================
+Variant          | Model           | Accuracy          | Fake-F1           | Precision         | Recall            | ROC-AUC           | TP     | FP     | TN     | FN     | Pred-Fake Rate
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+baseline         | Majority_Class  |   0.6277           |   0.0000           |   0.0000           |   0.0000           |   0.5000           |      0 |      0 |   1207 |    716 |         0.0000
+baseline         | Always_Fake     |   0.3723           |   0.5426           |   0.3723           |   1.0000           |   0.5000           |    716 |   1207 |      0 |      0 |         1.0000
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+humor_as_fake    | M0              |   0.3723           |   0.5426           |   0.3723           |   1.0000           |   0.8780           |    716 |   1207 |      0 |      0 |         1.0000
+humor_as_fake    | M1              | 0.3997 ± 0.0078   | 0.5071 ± 0.0038   | 0.3652 ± 0.0036   | 0.8291 ± 0.0032   | 0.5176 ± 0.0277   | 594    | 1032   | 175    | 122    | 0.8454 ± 0.0069
+humor_as_fake    | M2              | 0.7322 ± 0.2423   | 0.7588 ± 0.1583   | 0.6375 ± 0.2015   | 0.9832 ± 0.0290   | 0.9290 ± 0.0178   | 704    | 503    | 704    | 12     | 0.6277 ± 0.2535
+humor_as_fake    | M3              | 0.4228 ± 0.0161   | 0.5618 ± 0.0065   | 0.3916 ± 0.0066   | 0.9935 ± 0.0016   | 0.8770 ± 0.0087   | 711    | 1105   | 102    | 5      | 0.9447 ± 0.0173
+humor_as_fake    | M4              | 0.4446 ± 0.0218   | 0.5710 ± 0.0089   | 0.4009 ± 0.0092   | 0.9921 ± 0.0029   | 0.8685 ± 0.0337   | 710    | 1062   | 145    | 6      | 0.9218 ± 0.0238
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+humor_dropped    | M0              |   0.3723           |   0.5426           |   0.3723           |   1.0000           |   0.8780           |    716 |   1207 |      0 |      0 |         1.0000
+humor_dropped    | M1              | 0.3952 ± 0.0127   | 0.5027 ± 0.0051   | 0.3623 ± 0.0053   | 0.8208 ± 0.0045   | 0.4795 ± 0.0557   | 588    | 1035   | 172    | 128    | 0.8436 ± 0.0139
+humor_dropped    | M2              | 0.8641 ± 0.0030   | 0.8396 ± 0.0030   | 0.7489 ± 0.0047   | 0.9553 ± 0.0000   | 0.9544 ± 0.0004   | 684    | 229    | 978    | 32     | 0.4750 ± 0.0030
+humor_dropped    | M3              | 0.4621 ± 0.0060   | 0.5779 ± 0.0024   | 0.4082 ± 0.0026   | 0.9888 ± 0.0014   | 0.9318 ± 0.0250   | 708    | 1026   | 181    | 8      | 0.9019 ± 0.0070
+humor_dropped    | M4              | 0.4666 ± 0.0391   | 0.5810 ± 0.0167   | 0.4110 ± 0.0176   | 0.9916 ± 0.0061   | 0.9055 ± 0.0355   | 710    | 1020   | 187    | 6      | 0.8995 ± 0.0432
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Execution complete. All outputs saved to:
+  • /Users/sharanya/FND/results/twitter_v2_results.csv
+  • /Users/sharanya/FND/results/twitter_v2_training.log
+=======================================================================================================================================

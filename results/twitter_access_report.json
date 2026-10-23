@@ -1,0 +1,2091 @@
+{
+  "dataset_name": "MediaEval Verifying Multimedia Use (VMU) 2015 / Twitter Image Verification Corpus",
+  "repository_url": "https://github.com/MKLab-ITI/image-verification-corpus",
+  "local_clone_path": "data/twitter_raw",
+  "inventory": {
+    "readme_path": "README.md",
+    "readme_length_chars": 3598,
+    "files_count": 71,
+    "files": [
+      {
+        "file_path": "LICENSE",
+        "size_bytes": 11323,
+        "extension": "",
+        "format": "Binary/Other",
+        "columns": null
+      },
+      {
+        "file_path": "README.md",
+        "size_bytes": 3598,
+        "extension": ".md",
+        "format": "Markdown documentation",
+        "columns": null
+      },
+      {
+        "file_path": "set_images.txt",
+        "size_bytes": 37054,
+        "extension": ".txt",
+        "format": "Tab-separated text (TSV)",
+        "columns": [
+          "image_id",
+          "image_url",
+          "annotation",
+          "event"
+        ]
+      },
+      {
+        "file_path": "tweets_event.txt",
+        "size_bytes": 37160,
+        "extension": ".txt",
+        "format": "Tab-separated text (TSV)",
+        "columns": [
+          "tweet_id",
+          "annotation",
+          "event"
+        ]
+      },
+      {
+        "file_path": "tweets_images.txt",
+        "size_bytes": 1943734,
+        "extension": ".txt",
+        "format": "Tab-separated text (TSV)",
+        "columns": [
+          "tweet_id",
+          "image_id(s)",
+          "annotation",
+          "event"
+        ]
+      },
+      {
+        "file_path": "tweets_images_update.txt",
+        "size_bytes": 665320,
+        "extension": ".txt",
+        "format": "Tab-separated text without header",
+        "columns": [
+          "tweet_id",
+          "image_id",
+          "label",
+          "event (inferred)"
+        ]
+      },
+      {
+        "file_path": "mediaeval2015/tweets_dataset_no2.txt",
+        "size_bytes": 526328,
+        "extension": ".txt",
+        "format": "Tab-separated text (TSV)",
+        "columns": [
+          "tweetId",
+          "tweetText",
+          "userId",
+          "imageId(s)",
+          "username",
+          "timestamp",
+          "label"
+        ]
+      },
+      {
+        "file_path": "mediaeval2015/devset/MediaEval2015_DevSet_Images.rar",
+        "size_bytes": 35070075,
+        "extension": ".rar",
+        "format": "RAR archive",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/devset/images.txt",
+        "size_bytes": 33968,
+        "extension": ".txt",
+        "format": "Tab-separated text (TSV)",
+        "columns": [
+          "image_id",
+          "image_url",
+          "annotation",
+          "event"
+        ]
+      },
+      {
+        "file_path": "mediaeval2015/devset/tweets.txt",
+        "size_bytes": 2663005,
+        "extension": ".txt",
+        "format": "Tab-separated text (TSV)",
+        "columns": [
+          "tweetId",
+          "tweetText",
+          "userId",
+          "imageId(s)",
+          "username",
+          "timestamp",
+          "label"
+        ]
+      },
+      {
+        "file_path": "mediaeval2015/devset/ForensicFeatures/ImageForensicFeatures.part01.rar",
+        "size_bytes": 94371840,
+        "extension": ".rar",
+        "format": "RAR archive",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/devset/ForensicFeatures/ImageForensicFeatures.part02.rar",
+        "size_bytes": 94371840,
+        "extension": ".rar",
+        "format": "RAR archive",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/devset/ForensicFeatures/ImageForensicFeatures.part03.rar",
+        "size_bytes": 84455025,
+        "extension": ".rar",
+        "format": "RAR archive",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/devset/ForensicFeatures/VM_forensics_readme.pdf",
+        "size_bytes": 497243,
+        "extension": ".pdf",
+        "format": "PDF document",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/devset/DatasetFeatures/DevSet_features_readme.pdf",
+        "size_bytes": 491997,
+        "extension": ".pdf",
+        "format": "PDF document",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/devset/DatasetFeatures/tweet_features.csv",
+        "size_bytes": 1234714,
+        "extension": ".csv",
+        "format": "Comma-separated values (CSV)",
+        "columns": [
+          "tweet_id",
+          "num_words",
+          "text_length",
+          "contains_questmark",
+          "num_questmark",
+          "contains_exclammark",
+          "num_exclammark",
+          "contains_happyemo",
+          "contains_sademo",
+          "contains_firstorderpron",
+          "contains_secondorderpron",
+          "contains_thirdorderpron",
+          "num_uppercasechars",
+          "num_possentiwords",
+          "num_negsentiwords",
+          "num_mentions",
+          "num_hashtags",
+          "num_URLs",
+          "num_retweets"
+        ]
+      },
+      {
+        "file_path": "mediaeval2015/devset/DatasetFeatures/user_features.csv",
+        "size_bytes": 805446,
+        "extension": ".csv",
+        "format": "Comma-separated values (CSV)",
+        "columns": [
+          "tweet_id",
+          "num_friends",
+          "num_followers",
+          "folfriend_ratio",
+          "times_listed",
+          "has_url",
+          "is_verified",
+          "num_tweets"
+        ]
+      },
+      {
+        "file_path": "mediaeval2015/testset/MediaEval2015_TestSetImages.rar",
+        "size_bytes": 1984035,
+        "extension": ".rar",
+        "format": "RAR archive",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/testset/tweets.txt",
+        "size_bytes": 777826,
+        "extension": ".txt",
+        "format": "Tab-separated text (TSV)",
+        "columns": [
+          "tweetId",
+          "tweetText",
+          "userId",
+          "imageId(s)",
+          "username",
+          "timestamp",
+          "label"
+        ]
+      },
+      {
+        "file_path": "mediaeval2015/testset/ForensicFeatures/ImageForensicFeatures.rar",
+        "size_bytes": 21927906,
+        "extension": ".rar",
+        "format": "RAR archive",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/testset/DatasetFeatures/tweet_features.txt",
+        "size_bytes": 323367,
+        "extension": ".txt",
+        "format": "Comma-separated values (CSV)",
+        "columns": [
+          "tweet_id",
+          "num_words",
+          "text_length",
+          "contains_questmark",
+          "num_questmark",
+          "contains_exclammark",
+          "num_exclammark",
+          "contains_happyemo",
+          "contains_sademo",
+          "contains_firstorderpron",
+          "contains_secondorderpron",
+          "contains_thirdorderpron",
+          "num_uppercasechars",
+          "num_possentiwords",
+          "num_negsentiwords",
+          "num_mentions",
+          "num_hashtags",
+          "num_URLs",
+          "num_retweets"
+        ]
+      },
+      {
+        "file_path": "mediaeval2015/testset/DatasetFeatures/user_features.txt",
+        "size_bytes": 212108,
+        "extension": ".txt",
+        "format": "Comma-separated values (CSV)",
+        "columns": [
+          "tweet_id",
+          "num_friends",
+          "num_followers",
+          "folfriend_ratio",
+          "times_listed",
+          "has_url",
+          "is_verified",
+          "num_tweets"
+        ]
+      },
+      {
+        "file_path": "mediaeval2015/src/guidelines_for_featureextraction.pdf",
+        "size_bytes": 380305,
+        "extension": ".pdf",
+        "format": "PDF document",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/evaluationScript/EvaluationScript.java",
+        "size_bytes": 2818,
+        "extension": ".java",
+        "format": "Java source code",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/evaluationScript/groundtruth.txt",
+        "size_bytes": 191,
+        "extension": ".txt",
+        "format": "Tab-separated text (TSV)",
+        "columns": [
+          "263356694694879232",
+          "fake"
+        ]
+      },
+      {
+        "file_path": "mediaeval2015/src/evaluationScript/predictions.txt",
+        "size_bytes": 191,
+        "extension": ".txt",
+        "format": "Tab-separated text (TSV)",
+        "columns": [
+          "263356694694879232",
+          "real"
+        ]
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/DatasetFeaturesExtractor.java",
+        "size_bytes": 1648,
+        "extension": ".java",
+        "format": "Java source code",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/TextUtils.java",
+        "size_bytes": 5621,
+        "extension": ".java",
+        "format": "Java source code",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/TweetFeatureExtractor.java",
+        "size_bytes": 11243,
+        "extension": ".java",
+        "format": "Java source code",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/UserFeatureExtractor.java",
+        "size_bytes": 1524,
+        "extension": ".java",
+        "format": "Java source code",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/Vars.java",
+        "size_bytes": 1618,
+        "extension": ".java",
+        "format": "Java source code",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/pom.xml",
+        "size_bytes": 1314,
+        "extension": ".xml",
+        "format": "XML document",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/resources/first-order-prons-german.txt",
+        "size_bytes": 20,
+        "extension": ".txt",
+        "format": "Plain text",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/resources/first-order-prons-spanish.txt",
+        "size_bytes": 23,
+        "extension": ".txt",
+        "format": "Plain text",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/resources/first-order-prons.txt",
+        "size_bytes": 10,
+        "extension": ".txt",
+        "format": "Plain text",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/resources/happy-emoticons.txt",
+        "size_bytes": 12,
+        "extension": ".txt",
+        "format": "Plain text",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/resources/negative-words-german.txt",
+        "size_bytes": 2055,
+        "extension": ".txt",
+        "format": "Plain text",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/resources/negative-words-spanish.txt",
+        "size_bytes": 3774,
+        "extension": ".txt",
+        "format": "Plain text",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/resources/negative-words.txt",
+        "size_bytes": 44757,
+        "extension": ".txt",
+        "format": "Plain text",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/resources/positive-words-german.txt",
+        "size_bytes": 4839,
+        "extension": ".txt",
+        "format": "Plain text",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/resources/positive-words-spanish.txt",
+        "size_bytes": 4663,
+        "extension": ".txt",
+        "format": "Plain text",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/resources/positive-words.txt",
+        "size_bytes": 19092,
+        "extension": ".txt",
+        "format": "Plain text",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/resources/sad-emoticons.txt",
+        "size_bytes": 9,
+        "extension": ".txt",
+        "format": "Plain text",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/resources/second-order-prons-german.txt",
+        "size_bytes": 16,
+        "extension": ".txt",
+        "format": "Plain text",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/resources/second-order-prons-spanish.txt",
+        "size_bytes": 23,
+        "extension": ".txt",
+        "format": "Plain text",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/resources/second-order-prons.txt",
+        "size_bytes": 3,
+        "extension": ".txt",
+        "format": "Plain text",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/resources/third-order-prons-german.txt",
+        "size_bytes": 27,
+        "extension": ".txt",
+        "format": "Plain text",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/resources/third-order-prons-spanish.txt",
+        "size_bytes": 19,
+        "extension": ".txt",
+        "format": "Plain text",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2015/src/featureextraction/resources/third-order-prons.txt",
+        "size_bytes": 21,
+        "extension": ".txt",
+        "format": "Plain text",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2016/testset_subtask/Mediaeval2016_TestSet_Images_subset.zip",
+        "size_bytes": 3953335,
+        "extension": ".zip",
+        "format": "Binary/Other",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2016/testset_subtask/data.txt",
+        "size_bytes": 2167,
+        "extension": ".txt",
+        "format": "Tab-separated text (TSV)",
+        "columns": [
+          "image_filename",
+          "post_id"
+        ]
+      },
+      {
+        "file_path": "mediaeval2016/testset_subtask/data_groundtruth.txt",
+        "size_bytes": 2893,
+        "extension": ".txt",
+        "format": "Tab-separated text (TSV)",
+        "columns": [
+          "image_filename",
+          "post_id",
+          "label"
+        ]
+      },
+      {
+        "file_path": "mediaeval2016/testset_subtask/forensic_features/forensic_features.rar",
+        "size_bytes": 29994206,
+        "extension": ".rar",
+        "format": "RAR archive",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2016/devset_subtask/data.txt",
+        "size_bytes": 2900,
+        "extension": ".txt",
+        "format": "Tab-separated text (TSV)",
+        "columns": [
+          "image_filename",
+          "post_id",
+          "label"
+        ]
+      },
+      {
+        "file_path": "mediaeval2016/devset_subtask/forensic_features/forensic_features.zip",
+        "size_bytes": 34902494,
+        "extension": ".zip",
+        "format": "Binary/Other",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2016/devset/posts.txt",
+        "size_bytes": 2977338,
+        "extension": ".txt",
+        "format": "Tab-separated text (TSV)",
+        "columns": [
+          "post_id",
+          "post_text",
+          "user_id",
+          "image_id(s)",
+          "username",
+          "timestamp",
+          "label"
+        ]
+      },
+      {
+        "file_path": "mediaeval2016/devset/forensic_features/VM_forensics_readme.pdf",
+        "size_bytes": 497243,
+        "extension": ".pdf",
+        "format": "PDF document",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2016/devset/forensic_features/forensic_features.part01.rar",
+        "size_bytes": 103809024,
+        "extension": ".rar",
+        "format": "RAR archive",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2016/devset/forensic_features/forensic_features.part02.rar",
+        "size_bytes": 103809024,
+        "extension": ".rar",
+        "format": "RAR archive",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2016/devset/forensic_features/forensic_features.part03.rar",
+        "size_bytes": 77598071,
+        "extension": ".rar",
+        "format": "RAR archive",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2016/devset/dataset_features/post_features.txt",
+        "size_bytes": 1334025,
+        "extension": ".txt",
+        "format": "Comma-separated values (CSV)",
+        "columns": [
+          "post_id",
+          "num_words",
+          "text_length",
+          "contains_questmark",
+          "num_questmark",
+          "contains_exclammark",
+          "num_exclammark",
+          "contains_happyemo",
+          "contains_sademo",
+          "contains_firstorderpron",
+          "contains_secondorderpron",
+          "contains_thirdorderpron",
+          "num_uppercasechars",
+          "num_possentiwords",
+          "num_negsentiwords",
+          "num_mentions",
+          "num_hashtags",
+          "num_URLs",
+          "num_retweets"
+        ]
+      },
+      {
+        "file_path": "mediaeval2016/devset/dataset_features/user_features.txt",
+        "size_bytes": 870838,
+        "extension": ".txt",
+        "format": "Comma-separated values (CSV)",
+        "columns": [
+          "post_id",
+          "num_friends",
+          "num_followers",
+          "folfriend_ratio",
+          "times_listed",
+          "has_url",
+          "is_verified",
+          "num_posts"
+        ]
+      },
+      {
+        "file_path": "mediaeval2016/testset/Mediaeval2016_TestSet_Images.zip",
+        "size_bytes": 7428059,
+        "extension": ".zip",
+        "format": "Binary/Other",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2016/testset/posts.txt",
+        "size_bytes": 456973,
+        "extension": ".txt",
+        "format": "Tab-separated text (TSV)",
+        "columns": [
+          "post_id",
+          "post_text",
+          "user_id",
+          "username",
+          "image_id",
+          "timestamp"
+        ]
+      },
+      {
+        "file_path": "mediaeval2016/testset/posts_groundtruth.txt",
+        "size_bytes": 468120,
+        "extension": ".txt",
+        "format": "Tab-separated text (TSV)",
+        "columns": [
+          "post_id",
+          "post_text",
+          "user_id",
+          "username",
+          "image_id",
+          "timestamp",
+          "label"
+        ]
+      },
+      {
+        "file_path": "mediaeval2016/testset/forensic_features/forensic_features.rar",
+        "size_bytes": 45667907,
+        "extension": ".rar",
+        "format": "RAR archive",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2016/testset/dataset_features/post_features.txt",
+        "size_bytes": 202534,
+        "extension": ".txt",
+        "format": "Comma-separated values (CSV)",
+        "columns": [
+          "post_id",
+          "num_words",
+          "text_length",
+          "contains_questmark",
+          "num_questmark",
+          "contains_exclammark",
+          "num_exclammark",
+          "contains_happyemo",
+          "contains_sademo",
+          "contains_firstorderpron",
+          "contains_secondorderpron",
+          "contains_thirdorderpron",
+          "num_uppercasechars",
+          "num_possentiwords",
+          "num_negsentiwords",
+          "num_mentions",
+          "num_hashtags",
+          "num_URLs",
+          "num_retweets"
+        ]
+      },
+      {
+        "file_path": "mediaeval2016/testset/dataset_features/user_features.txt",
+        "size_bytes": 125189,
+        "extension": ".txt",
+        "format": "Comma-separated values (CSV)",
+        "columns": [
+          "post_id",
+          "num_friends",
+          "num_followers",
+          "folfriend_ratio",
+          "times_listed",
+          "has_url",
+          "is_verified",
+          "num_posts"
+        ]
+      },
+      {
+        "file_path": "mediaeval2016/src/evaluationScript/EvaluationScript.java",
+        "size_bytes": 4803,
+        "extension": ".java",
+        "format": "Java source code",
+        "columns": null
+      },
+      {
+        "file_path": "mediaeval2016/src/evaluationScript/groundtruth.txt",
+        "size_bytes": 191,
+        "extension": ".txt",
+        "format": "Tab-separated text (TSV)",
+        "columns": [
+          "263356694694879232",
+          "fake"
+        ]
+      },
+      {
+        "file_path": "mediaeval2016/src/evaluationScript/predictions.txt",
+        "size_bytes": 191,
+        "extension": ".txt",
+        "format": "Tab-separated text (TSV)",
+        "columns": [
+          "263356694694879232",
+          "real"
+        ]
+      }
+    ]
+  },
+  "splits_analysis": {
+    "devset": {
+      "file": "mediaeval2015/devset/tweets.txt",
+      "header": [
+        "tweetId",
+        "tweetText",
+        "userId",
+        "imageId(s)",
+        "username",
+        "timestamp",
+        "label"
+      ],
+      "tweet_count": 14277,
+      "label_counts": {
+        "fake": 6742,
+        "humor": 2614,
+        "real": 4921
+      },
+      "event_field_in_file": false,
+      "event_field_explanation": "The 'event' field does NOT exist in devset/tweets.txt. It is present in devset/images.txt.",
+      "distinct_events_count_in_images_txt": 11,
+      "events_in_images_txt": [
+        "Livr",
+        "Passport",
+        "PigFish",
+        "boston",
+        "bringback",
+        "columbianChemicals",
+        "elephant",
+        "malaysia",
+        "sandy",
+        "sochi",
+        "underwater"
+      ],
+      "distinct_event_prefixes_count": 12,
+      "event_prefixes": [
+        "boston",
+        "bringback",
+        "columbianChemicals",
+        "elephant",
+        "livr",
+        "malaysia",
+        "passport",
+        "pigFish",
+        "sandyA",
+        "sandyB",
+        "sochi",
+        "underwater"
+      ],
+      "unique_image_ids_count": 361,
+      "unique_image_ids": [
+        "boston_fake_01",
+        "boston_fake_02",
+        "boston_fake_03",
+        "boston_fake_04",
+        "boston_fake_05",
+        "boston_fake_06",
+        "boston_fake_07",
+        "boston_fake_08",
+        "boston_fake_09",
+        "boston_fake_10",
+        "boston_fake_11",
+        "boston_fake_12",
+        "boston_fake_13",
+        "boston_fake_14",
+        "boston_fake_15",
+        "boston_fake_16",
+        "boston_fake_17",
+        "boston_fake_18",
+        "boston_fake_19",
+        "boston_fake_20",
+        "boston_fake_21",
+        "boston_fake_22",
+        "boston_fake_23",
+        "boston_fake_24",
+        "boston_fake_25",
+        "boston_fake_26",
+        "boston_fake_27",
+        "boston_fake_28",
+        "boston_fake_29",
+        "boston_fake_30",
+        "boston_fake_31",
+        "boston_fake_32",
+        "boston_fake_33",
+        "boston_fake_34",
+        "boston_fake_35",
+        "boston_real_01",
+        "boston_real_02",
+        "boston_real_03",
+        "boston_real_04",
+        "boston_real_05",
+        "boston_real_06",
+        "boston_real_07",
+        "boston_real_08",
+        "boston_real_09",
+        "boston_real_10",
+        "boston_real_11",
+        "boston_real_12",
+        "boston_real_13",
+        "boston_real_14",
+        "boston_real_15",
+        "boston_real_16",
+        "boston_real_17",
+        "boston_real_18",
+        "boston_real_19",
+        "boston_real_20",
+        "boston_real_21",
+        "boston_real_22",
+        "boston_real_23",
+        "boston_real_24",
+        "boston_real_25",
+        "boston_real_26",
+        "boston_real_27",
+        "boston_real_28",
+        "boston_real_29",
+        "bringback_fake_01",
+        "bringback_fake_02",
+        "bringback_fake_03",
+        "bringback_fake_04",
+        "bringback_fake_05",
+        "bringback_fake_06",
+        "bringback_fake_07",
+        "columbianChemicals_fake_01",
+        "columbianChemicals_fake_02",
+        "columbianChemicals_fake_03",
+        "columbianChemicals_fake_04",
+        "columbianChemicals_fake_05",
+        "columbianChemicals_fake_06",
+        "columbianChemicals_fake_07",
+        "columbianChemicals_fake_08",
+        "columbianChemicals_fake_09",
+        "columbianChemicals_fake_10",
+        "columbianChemicals_fake_11",
+        "columbianChemicals_fake_12",
+        "columbianChemicals_fake_13",
+        "columbianChemicals_fake_14",
+        "columbianChemicals_fake_15",
+        "elephant_fake_01",
+        "livr_01",
+        "livr_02",
+        "livr_03",
+        "livr_04",
+        "malaysia_fake_01",
+        "malaysia_fake_02",
+        "malaysia_fake_03",
+        "malaysia_fake_04",
+        "malaysia_fake_06",
+        "malaysia_fake_07",
+        "malaysia_fake_08",
+        "malaysia_fake_09",
+        "malaysia_fake_11",
+        "malaysia_fake_12",
+        "malaysia_fake_13",
+        "malaysia_fake_14",
+        "malaysia_fake_15",
+        "malaysia_fake_16",
+        "malaysia_fake_17",
+        "malaysia_fake_18",
+        "malaysia_fake_19",
+        "malaysia_fake_20",
+        "malaysia_fake_21",
+        "malaysia_fake_22",
+        "malaysia_fake_23",
+        "malaysia_fake_24",
+        "malaysia_fake_25",
+        "malaysia_fake_26",
+        "malaysia_fake_27",
+        "malaysia_fake_28",
+        "malaysia_fake_29",
+        "passport_01",
+        "passport_02",
+        "pigFish_01",
+        "sandyA_fake_01",
+        "sandyA_fake_02",
+        "sandyA_fake_03",
+        "sandyA_fake_04",
+        "sandyA_fake_05",
+        "sandyA_fake_06",
+        "sandyA_fake_07",
+        "sandyA_fake_08",
+        "sandyA_fake_09",
+        "sandyA_fake_10",
+        "sandyA_fake_11",
+        "sandyA_fake_12",
+        "sandyA_fake_13",
+        "sandyA_fake_14",
+        "sandyA_fake_15",
+        "sandyA_fake_16",
+        "sandyA_fake_17",
+        "sandyA_fake_18",
+        "sandyA_fake_19",
+        "sandyA_fake_20",
+        "sandyA_fake_21",
+        "sandyA_fake_22",
+        "sandyA_fake_23",
+        "sandyA_fake_24",
+        "sandyA_fake_25",
+        "sandyA_fake_26",
+        "sandyA_fake_27",
+        "sandyA_fake_28",
+        "sandyA_fake_29",
+        "sandyA_fake_30",
+        "sandyA_fake_31",
+        "sandyA_fake_32",
+        "sandyA_fake_33",
+        "sandyA_fake_34",
+        "sandyA_fake_35",
+        "sandyA_fake_36",
+        "sandyA_fake_37",
+        "sandyA_fake_38",
+        "sandyA_fake_39",
+        "sandyA_fake_40",
+        "sandyA_fake_41",
+        "sandyA_fake_42",
+        "sandyA_fake_43",
+        "sandyA_fake_44",
+        "sandyA_fake_45",
+        "sandyA_fake_46",
+        "sandyA_fake_47",
+        "sandyA_fake_48",
+        "sandyA_fake_49",
+        "sandyA_real_01",
+        "sandyA_real_02",
+        "sandyA_real_03",
+        "sandyA_real_04",
+        "sandyA_real_05",
+        "sandyA_real_06",
+        "sandyA_real_07",
+        "sandyA_real_08",
+        "sandyA_real_09",
+        "sandyA_real_10",
+        "sandyA_real_11",
+        "sandyA_real_12",
+        "sandyA_real_13",
+        "sandyA_real_14",
+        "sandyA_real_15",
+        "sandyA_real_16",
+        "sandyA_real_17",
+        "sandyA_real_18",
+        "sandyA_real_19",
+        "sandyA_real_20",
+        "sandyA_real_21",
+        "sandyA_real_22",
+        "sandyA_real_23",
+        "sandyA_real_24",
+        "sandyA_real_25",
+        "sandyA_real_26",
+        "sandyA_real_27",
+        "sandyA_real_28",
+        "sandyA_real_29",
+        "sandyA_real_30",
+        "sandyA_real_31",
+        "sandyA_real_32",
+        "sandyA_real_33",
+        "sandyA_real_34",
+        "sandyA_real_35",
+        "sandyA_real_36",
+        "sandyA_real_38",
+        "sandyA_real_39",
+        "sandyA_real_40",
+        "sandyA_real_41",
+        "sandyA_real_42",
+        "sandyA_real_43",
+        "sandyA_real_45",
+        "sandyA_real_46",
+        "sandyA_real_47",
+        "sandyA_real_48",
+        "sandyA_real_49",
+        "sandyA_real_50",
+        "sandyA_real_51",
+        "sandyA_real_52",
+        "sandyA_real_53",
+        "sandyA_real_54",
+        "sandyA_real_55",
+        "sandyA_real_56",
+        "sandyA_real_58",
+        "sandyA_real_59",
+        "sandyA_real_60",
+        "sandyA_real_61",
+        "sandyA_real_62",
+        "sandyB_fake_01",
+        "sandyB_fake_02",
+        "sandyB_fake_03",
+        "sandyB_fake_04",
+        "sandyB_fake_05",
+        "sandyB_fake_06",
+        "sandyB_fake_07",
+        "sandyB_fake_08",
+        "sandyB_fake_10",
+        "sandyB_fake_11",
+        "sandyB_fake_12",
+        "sandyB_fake_13",
+        "sandyB_fake_14",
+        "sandyB_real_01",
+        "sandyB_real_02",
+        "sandyB_real_04",
+        "sandyB_real_07",
+        "sandyB_real_08",
+        "sandyB_real_09",
+        "sandyB_real_10",
+        "sandyB_real_100",
+        "sandyB_real_101",
+        "sandyB_real_102",
+        "sandyB_real_11",
+        "sandyB_real_12",
+        "sandyB_real_13",
+        "sandyB_real_14",
+        "sandyB_real_16",
+        "sandyB_real_17",
+        "sandyB_real_18",
+        "sandyB_real_19",
+        "sandyB_real_20",
+        "sandyB_real_21",
+        "sandyB_real_22",
+        "sandyB_real_23",
+        "sandyB_real_24",
+        "sandyB_real_25",
+        "sandyB_real_26",
+        "sandyB_real_27",
+        "sandyB_real_28",
+        "sandyB_real_29",
+        "sandyB_real_31",
+        "sandyB_real_33",
+        "sandyB_real_34",
+        "sandyB_real_35",
+        "sandyB_real_36",
+        "sandyB_real_37",
+        "sandyB_real_38",
+        "sandyB_real_39",
+        "sandyB_real_4",
+        "sandyB_real_41",
+        "sandyB_real_42",
+        "sandyB_real_43",
+        "sandyB_real_44",
+        "sandyB_real_45",
+        "sandyB_real_46",
+        "sandyB_real_47",
+        "sandyB_real_48",
+        "sandyB_real_49",
+        "sandyB_real_50",
+        "sandyB_real_51",
+        "sandyB_real_52",
+        "sandyB_real_53",
+        "sandyB_real_54",
+        "sandyB_real_55",
+        "sandyB_real_56",
+        "sandyB_real_57",
+        "sandyB_real_58",
+        "sandyB_real_59",
+        "sandyB_real_6",
+        "sandyB_real_60",
+        "sandyB_real_63",
+        "sandyB_real_64",
+        "sandyB_real_65",
+        "sandyB_real_68",
+        "sandyB_real_69",
+        "sandyB_real_70",
+        "sandyB_real_71",
+        "sandyB_real_72",
+        "sandyB_real_73",
+        "sandyB_real_74",
+        "sandyB_real_75",
+        "sandyB_real_76",
+        "sandyB_real_78",
+        "sandyB_real_80",
+        "sandyB_real_81",
+        "sandyB_real_82",
+        "sandyB_real_83",
+        "sandyB_real_84",
+        "sandyB_real_85",
+        "sandyB_real_86",
+        "sandyB_real_88",
+        "sandyB_real_89",
+        "sandyB_real_90",
+        "sandyB_real_91",
+        "sandyB_real_92",
+        "sandyB_real_93",
+        "sandyB_real_94",
+        "sandyB_real_95",
+        "sandyB_real_96",
+        "sandyB_real_98",
+        "sandyB_real_99",
+        "sochi_fake_0",
+        "sochi_fake_1",
+        "sochi_fake_10",
+        "sochi_fake_11",
+        "sochi_fake_12",
+        "sochi_fake_13",
+        "sochi_fake_14",
+        "sochi_fake_15",
+        "sochi_fake_16",
+        "sochi_fake_17",
+        "sochi_fake_18",
+        "sochi_fake_19",
+        "sochi_fake_1fake",
+        "sochi_fake_2",
+        "sochi_fake_20",
+        "sochi_fake_21",
+        "sochi_fake_22",
+        "sochi_fake_23",
+        "sochi_fake_24",
+        "sochi_fake_25",
+        "sochi_fake_3",
+        "sochi_fake_4",
+        "sochi_fake_5",
+        "sochi_fake_6",
+        "sochi_fake_7",
+        "sochi_fake_8",
+        "sochi_fake_9",
+        "underwater_fake_01",
+        "underwater_fake_02",
+        "underwater_fake_03"
+      ],
+      "unique_image_urls_in_images_txt": 360,
+      "unique_tweet_text_urls": 12912
+    },
+    "testset": {
+      "file": "mediaeval2015/testset/tweets.txt",
+      "header": [
+        "tweetId",
+        "tweetText",
+        "userId",
+        "imageId(s)",
+        "username",
+        "timestamp",
+        "label"
+      ],
+      "tweet_count": 3755,
+      "label_counts": {
+        "fake": 2546,
+        "real": 1209
+      },
+      "event_field_in_file": false,
+      "event_field_explanation": "The 'event' field does NOT exist in testset/tweets.txt, and no testset/images.txt is provided. Distinct events are inferred from image ID prefixes.",
+      "distinct_events_count_inferred": 6,
+      "events_inferred": [
+        "eclipse",
+        "garissa",
+        "nepal",
+        "samurai",
+        "syrianboy",
+        "varoufakis"
+      ],
+      "unique_image_ids_count": 51,
+      "unique_image_ids": [
+        "eclipse_01",
+        "eclipse_02",
+        "eclipse_03",
+        "eclipse_04",
+        "eclipse_05",
+        "eclipse_06",
+        "eclipse_07",
+        "eclipse_08",
+        "eclipse_09",
+        "eclipse_10",
+        "eclipse_video_01",
+        "garissa_01",
+        "garissa_02",
+        "garissa_03",
+        "garissa_04",
+        "nepal_01",
+        "nepal_02",
+        "nepal_03",
+        "nepal_04",
+        "nepal_05",
+        "nepal_06",
+        "nepal_07",
+        "nepal_08",
+        "nepal_09",
+        "nepal_10",
+        "nepal_12",
+        "nepal_13",
+        "nepal_14",
+        "nepal_15",
+        "nepal_16",
+        "nepal_17",
+        "nepal_18",
+        "nepal_19",
+        "nepal_20",
+        "nepal_21",
+        "nepal_22",
+        "nepal_23",
+        "nepal_24",
+        "nepal_25",
+        "nepal_26",
+        "nepal_27",
+        "nepal_28",
+        "nepal_29",
+        "nepal_30",
+        "nepal_31",
+        "nepal_32",
+        "samurai_01",
+        "samurai_02",
+        "samurai_04",
+        "syrianboy_1",
+        "varoufakis_1"
+      ],
+      "unique_image_urls_in_images_txt": 0,
+      "unique_tweet_text_urls": 4003
+    }
+  },
+  "splits_overlap": {
+    "image_ids_overlap": {
+      "dev_count": 361,
+      "test_count": 51,
+      "overlap_count": 0,
+      "overlap_list": [],
+      "is_disjoint": true
+    },
+    "event_names_overlap": {
+      "dev_events": [
+        "Livr",
+        "Passport",
+        "PigFish",
+        "boston",
+        "bringback",
+        "columbianChemicals",
+        "elephant",
+        "malaysia",
+        "sandy",
+        "sochi",
+        "underwater"
+      ],
+      "test_events": [
+        "eclipse",
+        "garissa",
+        "nepal",
+        "samurai",
+        "syrianboy",
+        "varoufakis"
+      ],
+      "overlap_count": 0,
+      "overlap_list": [],
+      "is_disjoint": true
+    },
+    "urls_overlap": {
+      "images_txt_vs_test_overlap": 0,
+      "tweet_urls_vs_test_overlap": 0,
+      "is_disjoint": true
+    }
+  },
+  "url_accessibility_testing": {
+    "devset_url_test": {
+      "source": "mediaeval2015/devset/images.txt",
+      "sample_size": 50,
+      "successful_requests": 20,
+      "failed_requests": 30,
+      "success_rate_percent": 40.0,
+      "outcome_counts": {
+        "HTTP_403": 4,
+        "CONNECTION_ERROR": 11,
+        "HTTP_500": 1,
+        "HTTP_402": 4,
+        "OK_2xx_3xx": 20,
+        "HTTP_404": 10
+      },
+      "details": [
+        {
+          "index": 1,
+          "url": "https://pbs.twimg.com/media/Bic4fA5CQAAT5KY.jpg",
+          "domain": "pbs.twimg.com",
+          "status": "HTTP_403",
+          "http_code": 403,
+          "success": false
+        },
+        {
+          "index": 2,
+          "url": "http://fotos.cloud.noticias24.com/eeuulluvias13.jpg",
+          "domain": "fotos.cloud.noticias24.com",
+          "status": "CONNECTION_ERROR",
+          "http_code": null,
+          "success": false
+        },
+        {
+          "index": 3,
+          "url": "http://blogs.reuters.com/david-rohde/files/2012/10/RTR39RLY-1024x682.jpg",
+          "domain": "blogs.reuters.com",
+          "status": "CONNECTION_ERROR",
+          "http_code": null,
+          "success": false
+        },
+        {
+          "index": 4,
+          "url": "http://media.theweek.com/img/generic/FakeSandy9.jpg",
+          "domain": "media.theweek.com",
+          "status": "CONNECTION_ERROR",
+          "http_code": null,
+          "success": false
+        },
+        {
+          "index": 5,
+          "url": "http://img.gawkerassets.com/img/19evfaken42lajpg/ku-xlarge.jpg",
+          "domain": "img.gawkerassets.com",
+          "status": "HTTP_500",
+          "http_code": 500,
+          "success": false
+        },
+        {
+          "index": 6,
+          "url": "http://i.telegraph.co.uk/multimedia/archive/02384/sandy-tanker-beach_2384026b.jpg",
+          "domain": "i.telegraph.co.uk",
+          "status": "HTTP_402",
+          "http_code": 402,
+          "success": false
+        },
+        {
+          "index": 7,
+          "url": "http://i.dailymail.co.uk/i/pix/2014/02/11/article-2556540-1B61B57200000578-48_634x445.jpg",
+          "domain": "i.dailymail.co.uk",
+          "status": "HTTP_200",
+          "http_code": 200,
+          "success": true
+        },
+        {
+          "index": 8,
+          "url": "http://distilleryimage9.ak.instagram.com/054343d2228c11e2918122000a9f0a12_6.jpg",
+          "domain": "distilleryimage9.ak.instagram.com",
+          "status": "CONNECTION_ERROR",
+          "http_code": null,
+          "success": false
+        },
+        {
+          "index": 9,
+          "url": "https://pbs.twimg.com/media/BxQL_mQCUAEINzi.jpg",
+          "domain": "pbs.twimg.com",
+          "status": "HTTP_404",
+          "http_code": 404,
+          "success": false
+        },
+        {
+          "index": 10,
+          "url": "https://pbs.twimg.com/media/A6f-tstCIAA3nz0.jpg",
+          "domain": "pbs.twimg.com",
+          "status": "HTTP_200",
+          "http_code": 200,
+          "success": true
+        },
+        {
+          "index": 11,
+          "url": "http://distilleryimage5.ak.instagram.com/3b7bc36e22e311e2a24f12313820439c_6.jpg",
+          "domain": "distilleryimage5.ak.instagram.com",
+          "status": "CONNECTION_ERROR",
+          "http_code": null,
+          "success": false
+        },
+        {
+          "index": 12,
+          "url": "https://pbs.twimg.com/media/Bf3UP2yCAAAOFQ2.jpg",
+          "domain": "pbs.twimg.com",
+          "status": "HTTP_200",
+          "http_code": 200,
+          "success": true
+        },
+        {
+          "index": 13,
+          "url": "https://pbs.twimg.com/media/A63UPSmCMAEtSOY.jpg",
+          "domain": "pbs.twimg.com",
+          "status": "HTTP_403",
+          "http_code": 403,
+          "success": false
+        },
+        {
+          "index": 14,
+          "url": "http://cdn.theatlantic.com/static/infocus/sandy103012/s_s34_21015746.jpg",
+          "domain": "cdn.theatlantic.com",
+          "status": "HTTP_404",
+          "http_code": 404,
+          "success": false
+        },
+        {
+          "index": 15,
+          "url": "http://cdn.theatlantic.com/static/infocus/sandy103012/s_s31_76890078.jpg",
+          "domain": "cdn.theatlantic.com",
+          "status": "HTTP_404",
+          "http_code": 404,
+          "success": false
+        },
+        {
+          "index": 16,
+          "url": "http://distilleryimage8.ak.instagram.com/198d740022f711e284b222000a1fbcf6_6.jpg",
+          "domain": "distilleryimage8.ak.instagram.com",
+          "status": "CONNECTION_ERROR",
+          "http_code": null,
+          "success": false
+        },
+        {
+          "index": 17,
+          "url": "http://i.telegraph.co.uk/multimedia/archive/02383/sandy-ny-plaza-2_2383334k.jpg",
+          "domain": "i.telegraph.co.uk",
+          "status": "HTTP_402",
+          "http_code": 402,
+          "success": false
+        },
+        {
+          "index": 18,
+          "url": "http://images.politico.com/global/2013/04/18/boston_marathon_suspect1_photo_fbi.jpg",
+          "domain": "images.politico.com",
+          "status": "HTTP_403",
+          "http_code": 403,
+          "success": false
+        },
+        {
+          "index": 19,
+          "url": "https://pbs.twimg.com/media/A6aj4PNCcAAjcRK.jpg:large",
+          "domain": "pbs.twimg.com",
+          "status": "HTTP_403",
+          "http_code": 403,
+          "success": false
+        },
+        {
+          "index": 20,
+          "url": "https://pbs.twimg.com/media/BgGrysDCEAA_C1c.jpg",
+          "domain": "pbs.twimg.com",
+          "status": "HTTP_404",
+          "http_code": 404,
+          "success": false
+        },
+        {
+          "index": 21,
+          "url": "http://cdn.theatlantic.com/static/infocus/sandy103012/s10_54985108.jpg",
+          "domain": "cdn.theatlantic.com",
+          "status": "HTTP_404",
+          "http_code": 404,
+          "success": false
+        },
+        {
+          "index": 22,
+          "url": "https://pbs.twimg.com/media/A6oq67xCIAArDcb.png",
+          "domain": "pbs.twimg.com",
+          "status": "HTTP_200",
+          "http_code": 200,
+          "success": true
+        },
+        {
+          "index": 23,
+          "url": "http://i.imgur.com/tLVeEXh.png",
+          "domain": "i.imgur.com",
+          "status": "HTTP_200",
+          "http_code": 200,
+          "success": true
+        },
+        {
+          "index": 24,
+          "url": "https://pbs.twimg.com/media/BjIE1mDIgAEjghV.jpg",
+          "domain": "pbs.twimg.com",
+          "status": "HTTP_200",
+          "http_code": 200,
+          "success": true
+        },
+        {
+          "index": 25,
+          "url": "https://s-media-cache-ak0.pinimg.com/originals/df/c7/fd/dfc7fdc64102342ae035cfa33159492d.jpg",
+          "domain": "s-media-cache-ak0.pinimg.com",
+          "status": "HTTP_200",
+          "http_code": 200,
+          "success": true
+        },
+        {
+          "index": 26,
+          "url": "https://pbs.twimg.com/media/A60vLNtCcAMmogX.jpg",
+          "domain": "pbs.twimg.com",
+          "status": "HTTP_200",
+          "http_code": 200,
+          "success": true
+        },
+        {
+          "index": 27,
+          "url": "http://i.telegraph.co.uk/multimedia/archive/02384/sandy-houses-aeria_2384028b.jpg",
+          "domain": "i.telegraph.co.uk",
+          "status": "HTTP_402",
+          "http_code": 402,
+          "success": false
+        },
+        {
+          "index": 28,
+          "url": "https://pbs.twimg.com/media/A6X6CasCUAAx2Fl.jpg",
+          "domain": "pbs.twimg.com",
+          "status": "HTTP_200",
+          "http_code": 200,
+          "success": true
+        },
+        {
+          "index": 29,
+          "url": "https://pbs.twimg.com/media/Bf3DeFGIMAAO_rE.jpg",
+          "domain": "pbs.twimg.com",
+          "status": "HTTP_404",
+          "http_code": 404,
+          "success": false
+        },
+        {
+          "index": 30,
+          "url": "http://moimir.org/wp-content/uploads/2012/11/496539.jpg",
+          "domain": "moimir.org",
+          "status": "HTTP_200",
+          "http_code": 200,
+          "success": true
+        },
+        {
+          "index": 31,
+          "url": "http://22dakika.org/wp-content/uploads/2012/11/Hurricane_Sandy_Social_Media_8.jpg",
+          "domain": "22dakika.org",
+          "status": "HTTP_200",
+          "http_code": 200,
+          "success": true
+        },
+        {
+          "index": 32,
+          "url": "http://i.imgur.com/DkHAf.jpg",
+          "domain": "i.imgur.com",
+          "status": "HTTP_200",
+          "http_code": 200,
+          "success": true
+        },
+        {
+          "index": 33,
+          "url": "https://s-media-cache-ak0.pinimg.com/736x/27/d3/ce/27d3ce91182d97f69533038972abefdd.jpg",
+          "domain": "s-media-cache-ak0.pinimg.com",
+          "status": "HTTP_200",
+          "http_code": 200,
+          "success": true
+        },
+        {
+          "index": 34,
+          "url": "http://www.fbi.gov/news/updates-on-investigation-into-multiple-explosions-in-boston/image/suspect-1-and-suspect-2",
+          "domain": "www.fbi.gov",
+          "status": "HTTP_404",
+          "http_code": 404,
+          "success": false
+        },
+        {
+          "index": 35,
+          "url": "http://i.imgur.com/6KqON7D.jpg",
+          "domain": "i.imgur.com",
+          "status": "HTTP_200",
+          "http_code": 200,
+          "success": true
+        },
+        {
+          "index": 36,
+          "url": "http://i.telegraph.co.uk/multimedia/archive/02383/sandy-new-york-car_2383487k.jpg",
+          "domain": "i.telegraph.co.uk",
+          "status": "HTTP_402",
+          "http_code": 402,
+          "success": false
+        },
+        {
+          "index": 37,
+          "url": "http://www.cdn.mumbaihangout.org/14/14578006c7b98f655736b257fc0e1768.jpg",
+          "domain": "www.cdn.mumbaihangout.org",
+          "status": "CONNECTION_ERROR",
+          "http_code": null,
+          "success": false
+        },
+        {
+          "index": 38,
+          "url": "http://www.requ.in/wp-content/uploads/2012/11/shark-new-york-3.jpg",
+          "domain": "www.requ.in",
+          "status": "CONNECTION_ERROR",
+          "http_code": null,
+          "success": false
+        },
+        {
+          "index": 39,
+          "url": "http://distilleryimage8.ak.instagram.com/d3ec68fa22d511e2854522000a1f9e45_6.jpg",
+          "domain": "distilleryimage8.ak.instagram.com",
+          "status": "CONNECTION_ERROR",
+          "http_code": null,
+          "success": false
+        },
+        {
+          "index": 40,
+          "url": "http://www.fbi.gov/news/updates-on-investigation-into-multiple-explosions-in-boston/image/suspects-in-crowd-1",
+          "domain": "www.fbi.gov",
+          "status": "HTTP_404",
+          "http_code": 404,
+          "success": false
+        },
+        {
+          "index": 41,
+          "url": "http://www.fbi.gov/news/updates-on-investigation-into-multiple-explosions-in-boston/image/suspect-1-up-close-1",
+          "domain": "www.fbi.gov",
+          "status": "HTTP_404",
+          "http_code": 404,
+          "success": false
+        },
+        {
+          "index": 42,
+          "url": "https://pbs.twimg.com/media/BgHxGsHCEAAR9c-.jpg",
+          "domain": "pbs.twimg.com",
+          "status": "HTTP_200",
+          "http_code": 200,
+          "success": true
+        },
+        {
+          "index": 43,
+          "url": "http://l3.yimg.com/bt/api/res/1.2/pjJ4K7fZe035THf3gPpisQ--/YXBwaWQ9eW5ld3M7cT04NTt3PTYzMA--/http://media.zenfs.com/en/blogs/trending-now/mcdonalds.jpg",
+          "domain": "l3.yimg.com",
+          "status": "HTTP_200",
+          "http_code": 200,
+          "success": true
+        },
+        {
+          "index": 44,
+          "url": "http://cdn.theatlanticwire.com/img/upload/2012/10/30/rendered/4e3df5c2a71d60e74c34b7bf74366f08_623x589.jpg",
+          "domain": "cdn.theatlanticwire.com",
+          "status": "CONNECTION_ERROR",
+          "http_code": null,
+          "success": false
+        },
+        {
+          "index": 45,
+          "url": "https://pbs.twimg.com/media/A6YEyihCIAMYXDv.jpg",
+          "domain": "pbs.twimg.com",
+          "status": "HTTP_200",
+          "http_code": 200,
+          "success": true
+        },
+        {
+          "index": 46,
+          "url": "https://pbs.twimg.com/media/A6dT65nCEAAFE9a.jpg",
+          "domain": "pbs.twimg.com",
+          "status": "HTTP_200",
+          "http_code": 200,
+          "success": true
+        },
+        {
+          "index": 47,
+          "url": "http://historiasdenuevayork.files.wordpress.com/2012/10/sandy-new-york0111.jpg",
+          "domain": "historiasdenuevayork.files.wordpress.com",
+          "status": "HTTP_200",
+          "http_code": 200,
+          "success": true
+        },
+        {
+          "index": 48,
+          "url": "http://www.quozzy.fr/wp-content/uploads/2012/10/A6bHS8bCMAEihL9.jpg",
+          "domain": "www.quozzy.fr",
+          "status": "HTTP_200",
+          "http_code": 200,
+          "success": true
+        },
+        {
+          "index": 49,
+          "url": "http://distilleryimage5.ak.instagram.com/1929d1fe23a911e294a422000a1f9874_6.jpg",
+          "domain": "distilleryimage5.ak.instagram.com",
+          "status": "CONNECTION_ERROR",
+          "http_code": null,
+          "success": false
+        },
+        {
+          "index": 50,
+          "url": "https://pbs.twimg.com/media/A6iCgRmCcAA3_p9.jpg",
+          "domain": "pbs.twimg.com",
+          "status": "HTTP_404",
+          "http_code": 404,
+          "success": false
+        }
+      ]
+    },
+    "testset_url_test": {
+      "source": "mediaeval2015/testset/tweets.txt (tweetText URLs)",
+      "sample_size": 50,
+      "successful_requests": 0,
+      "failed_requests": 50,
+      "success_rate_percent": 0.0,
+      "outcome_counts": {
+        "HTTP_520": 50
+      },
+      "details": [
+        {
+          "index": 1,
+          "url": "http://t.co/JYuS3jfEBj",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 2,
+          "url": "http://t.co/ssUMaIW05Q",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 3,
+          "url": "http://t.co/fG54Kfyurd",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 4,
+          "url": "http://t.co/eNghs4nUCv",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 5,
+          "url": "http://t.co/wVh8M2aCTO",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 6,
+          "url": "http://t.co/uymHzuwcF2",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 7,
+          "url": "http://t.co/O2n3iCvCEA",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 8,
+          "url": "http://t.co/bhp70un8UO",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 9,
+          "url": "http://t.co/CuBQm1JYtu",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 10,
+          "url": "http://t.co/kRXT5DRhL4",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 11,
+          "url": "http://t.co/4XdvaJvv3d",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 12,
+          "url": "http://t.co/34Xz6kCp4D",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 13,
+          "url": "http://t.co/hWSCWSennL",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 14,
+          "url": "http://t.co/FJrlQpFDax",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 15,
+          "url": "http://t.co/pMJlKAPWtr",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 16,
+          "url": "http://t.co/JGUhqJuBtG",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 17,
+          "url": "http://t.co/59lh5Zuegk",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 18,
+          "url": "http://t.co/uYsZwCsaIY",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 19,
+          "url": "http://t.co/FaCNuQ8Jyn",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 20,
+          "url": "http://t.co/vKyuxeHJRH",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 21,
+          "url": "http://t.co/6fV8cqzHDP",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 22,
+          "url": "http://t.co/PDbnO5jLYb",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 23,
+          "url": "http://t.co/IPPBEzJFWH",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 24,
+          "url": "http://t.co/Tkit364Nla",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 25,
+          "url": "http://t.co/fkfkKiFcGT",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 26,
+          "url": "http://t.co/t7g0GzPv1s",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 27,
+          "url": "http://t.co/OJqvXw0F52",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 28,
+          "url": "http://t.co/AbE1aFehax",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 29,
+          "url": "http://t.co/OaIWALuN1y",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 30,
+          "url": "http://t.co/NPf55jGLuA",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 31,
+          "url": "http://t.co/E2QSGR2WaN",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 32,
+          "url": "http://t.co/i2ZGle697y",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 33,
+          "url": "http://t.co/HgyUQC5qQ8",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 34,
+          "url": "http://t.co/kDodEbFTku",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 35,
+          "url": "http://t.co/zmJ5rKzxO7",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 36,
+          "url": "http://t.co/itregO89VB",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 37,
+          "url": "http://t.co/gXEU693s4h",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 38,
+          "url": "http://t.co/4gUzNYF2Yy",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 39,
+          "url": "http://t.co/dm1Advd5Xl",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 40,
+          "url": "http://t.co/fjaoVr53gZ",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 41,
+          "url": "http://t.co/BQsaM7UWP5",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 42,
+          "url": "http://t.co/YcaDEUJSk8",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 43,
+          "url": "http://t.co/mPfzfL5jxc",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 44,
+          "url": "http://t.co/GPlofNVnQG",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 45,
+          "url": "http://t.co/Ai4U2PTlGo",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 46,
+          "url": "http://t.co/UHBfyZyYZ4",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 47,
+          "url": "http://t.co/PBcxKETduz",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 48,
+          "url": "http://t.co/Hrf4EOq2mt",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 49,
+          "url": "http://t.co/z7Vhs83lIk",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        },
+        {
+          "index": 50,
+          "url": "http://t.co/fzzdECpBWp",
+          "domain": "t.co",
+          "status": "HTTP_520",
+          "http_code": 520,
+          "success": false
+        }
+      ]
+    }
+  }
+}
